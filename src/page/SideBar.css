@@ -1,0 +1,33 @@
+#sideBar {
+  width: 250px;
+  height: 100vh;
+  background-color: #333;
+  color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 20px;
+}
+
+#sideBar ul{
+    list-style: none;
+    padding: 0;
+}
+
+#sideBar h2{
+    color: red;
+}
+
+#sideBar li{
+    margin: 20px 0;
+    display: flex;
+    align-items: center;
+}
+
+#sideBar li:hover{
+    color: white;
+}
+
+#fabars{
+    width: 40px;
+}
