@@ -8,16 +8,11 @@ html {
   font-family: Arial, sans-serif;
 }
 
-body {
-  outline: 5px solid red;
-  background-color: #cccccc;
-}
-
 #title-container {
   margin-top: 50px;
 }
 
-#logo{
+#logo {
   width: 222px;
   height: 166px;
   background-color: transparent;

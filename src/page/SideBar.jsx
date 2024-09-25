@@ -1,8 +1,13 @@
 import './SideBar.css';
 import { FaBars, FaQuestionCircle, FaCog, FaSignOutAlt } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom';
 
 // eslint-disable-next-line react/prop-types
 function SideBar({ onClose }) {
+  const navigate = useNavigate();
+  const helpPage = () => {
+    navigate('/help')
+  }
   return (
     <div id="sideBar">
       <div id="container">
@@ -12,14 +17,14 @@ function SideBar({ onClose }) {
           </button>
         </div>
         <div id="list-container">
-          <ul id='help-container'>
+          <ul id="help-container">
             <li>
-              <button id="sidebar-button-help">
+              <button id="sidebar-button-help" onClick={helpPage}>
                 <FaQuestionCircle /> Ajuda
               </button>
             </li>
           </ul>
-          <ul id='config-container'>
+          <ul id="config-container">
             <li>
               <button id="sidebar-button-config">
                 <FaCog /> Configuração
