@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import './Home.css';
+import Logo from '../assets/images/logo.jpg';
 import SideBar from './SideBar';
 import { FaUserShield, FaBox, FaBars, FaDollarSign } from 'react-icons/fa';
 
@@ -11,22 +12,20 @@ function Home() {
   };
 
   const handleClose = () => {
-    setIsSideBarOpen(false)
-  }
+    setIsSideBarOpen(false);
+  };
 
   return (
     <div>
-      <header>
-        <button id="side-button" onClick={toggleSideBar}>
-          <FaBars />
-        </button>
-      </header>
-
-      {isSideBarOpen && <SideBar onClose={handleClose} />}
-
       <div id="container">
+        <div id="side-button-container">
+          <button id="side-button" onClick={toggleSideBar}>
+            <FaBars size={30} />
+          </button>
+        </div>
+        {isSideBarOpen && <SideBar onClose={handleClose} />}
         <div id="title-container">
-          <h1 id="title-h1">Mesa digital</h1>
+          <h1 ><img src={Logo} alt="Imagem principal" id="logo"/></h1>
         </div>
 
         <div id="btns-container">

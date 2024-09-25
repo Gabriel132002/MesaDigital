@@ -1,20 +1,40 @@
 import './SideBar.css';
-import { FaBars } from 'react-icons/fa';
+import { FaBars, FaQuestionCircle, FaCog, FaSignOutAlt } from 'react-icons/fa';
 
 // eslint-disable-next-line react/prop-types
 function SideBar({ onClose }) {
   return (
     <div id="sideBar">
-      <button id="fabars" onClick={onClose}>
-        <FaBars />
-      </button>
-      <h2>Ajuda</h2>
-      <ul>
-        <li>Ajuda</li>
-      </ul>
-      <ul>
-        <li>Configuração</li>
-      </ul>
+      <div id="container">
+        <div id="fabars-button-container">
+          <button id="fabars-button" onClick={onClose}>
+            <FaBars size={30} />
+          </button>
+        </div>
+        <div id="list-container">
+          <ul id='help-container'>
+            <li>
+              <button id="sidebar-button-help">
+                <FaQuestionCircle /> Ajuda
+              </button>
+            </li>
+          </ul>
+          <ul id='config-container'>
+            <li>
+              <button id="sidebar-button-config">
+                <FaCog /> Configuração
+              </button>
+            </li>
+          </ul>
+          <ul id="signout-container">
+            <li>
+              <button id="sidebar-button-signout">
+                <FaSignOutAlt /> Sair
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
   );
 }

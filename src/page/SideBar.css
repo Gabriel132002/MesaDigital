@@ -1,33 +1,97 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+}
+
 #sideBar {
-  width: 250px;
-  height: 100vh;
-  background-color: #333;
-  color: white;
   position: fixed;
+  right: 393px;
   top: 0;
-  left: 0;
-  padding: 20px;
+  width: 393px;
+  height: 100%;
+  background-color: #ffab40;
+  transform: translateX(100%);
+  font-family: Arial, sans-serif;
 }
 
-#sideBar ul{
-    list-style: none;
-    padding: 0;
+#list-container {
+  width: 240px;
 }
 
-#sideBar h2{
-    color: red;
+#sideBar ul {
+  color: black;
+  list-style: none;
 }
 
-#sideBar li{
-    margin: 20px 0;
-    display: flex;
-    align-items: center;
+#sideBar h2 {
+  color: black;
 }
 
-#sideBar li:hover{
-    color: white;
+#sideBar li {
+  display: flex;
+  align-items: center;
+  color: black;
 }
 
-#fabars{
-    width: 40px;
+#sideBar li:hover {
+  color: white;
+}
+
+#fabars-button-container {
+  margin-top: 10px;
+  margin-right: 10px;
+  display: block;
+  align-self: flex-end;
+}
+
+#fabars-button {
+  background-color: transparent;
+  border: none;
+  width: 70px;
+  height: 70px;
+}
+
+#config-container {
+  margin: 0;
+  padding: 0;
+  margin-top: 10px;
+}
+
+#sidebar-button-config {
+  background-color: transparent;
+  border: none;
+  width: auto;
+  font-size: 20px;
+  display: flex;
+  justify-self: start;
+}
+
+#signout-container {
+  margin: 0;
+  margin-top: 10px;
+  padding: 0;
+}
+
+#sidebar-button-signout {
+  background-color: transparent;
+  border: none;
+  width: auto;
+  font-size: 20px;
+  display: flex;
+  justify-self: start;
+}
+
+#help-container {
+  margin: 0;
+  padding: 0;
+}
+
+#sidebar-button-help {
+  background-color: transparent;
+  border: none;
+  width: auto;
+  font-size: 20px;
+  display: flex;
+  justify-self: start;
 }

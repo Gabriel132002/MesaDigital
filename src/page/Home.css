@@ -10,15 +10,17 @@ html {
 
 body {
   outline: 5px solid red;
-  background: linear-gradient(to bottom, #aaaaac, #4e4d4d, #000000);
+  background-color: #cccccc;
 }
 
 #title-container {
   margin-top: 50px;
 }
 
-#title-h1 {
-  color: black;
+#logo{
+  width: 222px;
+  height: 166px;
+  background-color: transparent;
 }
 
 #container {
@@ -28,20 +30,31 @@ body {
   flex-direction: column;
 }
 
-button{
+button {
   width: 300px;
   height: 40px;
-  background-color: #E65100;
+  background-color: #e65100;
+  transition: transform 0, 1s ease, background-color 0.3s ease;
 }
 
-.header{
-  display: flex;
-  justify-content: flex-end;
-  padding: 10px;
+button:active {
+  transform: scale(0.95);
 }
 
-#side-button{
-  background-color: red;
-  width: 40px;
+button:hover {
+  cursor: pointer;
 }
 
+#side-button-container {
+  margin-top: 10px;
+  margin-right: 10px;
+  display: block;
+  align-self: flex-end;
+}
+
+#side-button {
+  background-color: transparent;
+  width: 70px;
+  height: 70px;
+  border: none;
+}
