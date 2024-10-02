@@ -2,28 +2,44 @@ body,
 html {
   margin: 0;
   padding: 0;
-  overflow: hidden;
+  overflow-x: hidden;
   font-family: Arial, sans-serif;
   font-weight: bold;
 }
 
-header {
-  height: 100%;
+#top-container {
   width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-ul {
-  padding: 0;
-  list-style: none;
+#logo-container {
+  margin-left: 100px;
+  margin-top: 30px;
 }
 
 #logo-help {
   width: 121px;
-  height: 90px;
-  display: block;
-  justify-content: start;
-  margin-left: 100px;
-  margin-top: 30px;
+  height: auto;
+}
+
+#button-container {
+  margin-right: 100px;
+}
+
+#sidebar-button {
+  height: 70px;
+  width: 70px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+#title-container {
+  padding: 0;
+  margin: 0;
+  text-align: center;
 }
 
 #title-help {
@@ -31,37 +47,127 @@ ul {
   margin-top: 10px;
 }
 
-#title-container {
-  padding: 0;
-  margin: 0;
-}
-
-/* #main-section {
-  
+#main {
+  width: 90%;
+  margin: 0 auto;
   display: flex;
-  margin-left: 289px;
-  margin-top: 180px;
-  margin-right: 100px;
-} */
-
-#faq-container {
-  font-size: 24px;
-  margin-left: 289px;
-  margin-top: 180px;
-  display: block;
-  align-self: flex-start;
+  flex-direction: column;
+  align-items: center;
 }
 
-#faq-list-container {
-  font-size: 15px;
-  margin-top: 5px;
+#main-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+}
+
+#faq-content {
+  display: flex;
+  flex-direction: column;
+  margin-top: 100px;
+  margin-left: 20vw;
+  margin-right: 10vw;
 }
 
 #support-container {
-  height: 36px;
-  font-size: 24px;
-  margin-top: -93px;
-  margin-right: 0;
-  margin-left: 552px;
+  width: 400px;
+  margin-right: 10vw;
+  margin-left: 20px;
+  min-width: 150px;
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+#support-container input,
+#text-box {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
 }
 
+#client-data-container {
+  font-size: 15px;
+}
+
+#client-opinion {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: auto;
+}
+
+#textbox-client {
+  width: 100%;
+}
+
+#text-box {
+  height: 293px;
+  width: 300px;
+  background-color: #a9a9a9;
+}
+
+#btn-container {
+  margin-top: 40px;
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+}
+
+#submit {
+  width: 164px;
+  height: 44px;
+  border-radius: 8px;
+  background-color: #cc2900;
+  color: white;
+  cursor: pointer;
+  position: fixed;
+}
+
+#email,
+#name {
+  margin-top: 10px;
+}
+
+@media (max-width: 768px) {
+  #faq-content,
+  #support-container {
+    margin-left: 0;
+    margin-right: 0;
+    width: 100%;
+  }
+
+  #logo-container,
+  #button-container {
+    margin: 0 auto;
+    justify-content: center;
+  }
+
+  #submit {
+    width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  #support-container {
+    padding: 5px; /* Reduz o padding em telas pequenas */
+  }
+
+  #support-container input,
+  #text-box {
+    padding: 10px;
+  }
+}
+
+@media (max-width: 600px) {
+  #btn-container {
+    flex-direction: column; /* Empilha o botão em telas menores */
+    align-items: center; /* Centraliza o botão */
+  }
+
+  #submit {
+    width: 100%; /* Faz com que o botão ocupe toda a largura do container em telas pequenas */
+    margin-top: 10px; /* Adiciona margem acima do botão em telas pequenas */
+  }
+}
