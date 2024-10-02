@@ -96,3 +96,18 @@ html {
   display: flex;
   justify-self: start;
 }
+
+#home-button{
+  background-color: transparent;
+  border: none;
+  width: auto;
+  font-size: 20px;
+  display: flex;
+  justify-self: start;
+}
+
+#home-button-container{
+  margin: 0;
+  padding: 0;
+  margin-top: 10px;
+}

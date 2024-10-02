@@ -1,0 +1,48 @@
+body{
+    background-color: red;
+}
+
+.dropdown {
+  position: relative;
+  width: 100%;
+}
+
+#dropbtn {
+  background-color: #a9a9a9;
+  padding: 10px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 317px;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.drop-content {
+  display: none;
+  position: absolute;
+  background-color: #a9a9a9;
+  width: 100%;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.drop-content.show {
+  display: block;
+}
+
+.drop-content ul {
+  padding: 10px;
+  margin: 0;
+  list-style: none;
+}
+
+.drop-content li {
+  padding: 5px 0;
+  border-bottom: 1px solid #ccc;
+}
+
+.drop-content li:last-child {
+  border-bottom: none;
+}
