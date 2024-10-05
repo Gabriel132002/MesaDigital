@@ -1,8 +1,11 @@
+import { useState } from "react";
+
 function Home() {
+  const [contador, setContador] = useState(0);
   return (
     <div>
       <div>
-        <h1>Teste</h1>
+        <button onClick={() => setContador(contador + 1)}>{contador}</button>
       </div>
     </div>
   );

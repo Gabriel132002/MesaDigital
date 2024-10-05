@@ -4,32 +4,72 @@ import './DropDownProp.css';
 import { useTheme } from './ThemeContext';
 
 function DropDownProp() {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isThemeOpen, setIsThemeOpen] = useState(false);
+  const [isLanguageOpen, setIsLanguageOpen] = useState(false);
   const { toggleTheme } = useTheme();
 
-  const toggleDropDown = () => {
-    setIsOpen(!isOpen);
+  const [selectedTheme, setSelectedTheme] = useState();
+  const [selectedLanguage, setSelectedLanguage] = useState('portugues');
+
+  const toggleThemeDropDown = () => {
+    setIsThemeOpen(!isThemeOpen);
+    if (isLanguageOpen) setIsLanguageOpen(false);
+  };
+
+  const toggleLanguageDropDown = () => {
+    setIsLanguageOpen(!isLanguageOpen);
+    if (isThemeOpen) setIsThemeOpen(false);
   };
 
   const handleThemeChange = (theme) => {
-    toggleTheme(theme);
-    setIsOpen(false);
+    setSelectedTheme(theme);
+    setIsThemeOpen(false);
+  };
+
+  const handleLanguageChange = (language) => {
+    setSelectedLanguage(language);
+    setIsLanguageOpen(false);
+  };
+
+  const handleSubmit = () => {
+    toggleTheme(selectedTheme)
+    
   };
 
   return (
     <div className="dropdown">
-      <button id="dropbtn" onClick={toggleDropDown}>
+      {/* Theme button */}
+      <button id="theme" onClick={toggleThemeDropDown}>
         Claro/Escuro
-        {isOpen ? <FaCaretUp /> : <FaCaretDown />}
+        {isThemeOpen ? <FaCaretUp /> : <FaCaretDown />}
       </button>
-      {isOpen && (
-        <div className={`drop-content ${isOpen ? 'show' : ''}`}>
+      {isThemeOpen && (
+        <div className={`drop-content ${isThemeOpen ? 'show' : ''}`}>
           <ul>
             <li onClick={() => handleThemeChange('light')}>Claro</li>
             <li onClick={() => handleThemeChange('dark')}>Escuro</li>
           </ul>
         </div>
       )}
+
+      {/* Language Button */}
+      <button id="language" onClick={toggleLanguageDropDown}>
+        Idioma
+        {isLanguageOpen ? <FaCaretUp /> : <FaCaretDown />}
+      </button>
+      <div className={`drop-content ${isLanguageOpen ? 'show' : ''}`}>
+        <ul>
+          {/* <li>Português</li>
+          <li>Inglês</li>
+          <li>Espanhol</li> */}
+        </ul>
+      </div>
+      {/* Submit button */}
+      <div id="submit-container">
+        <button id="submit" type="button" onClick={handleSubmit}>
+          Atualizar
+        </button>
+      </div>
     </div>
   );
 }

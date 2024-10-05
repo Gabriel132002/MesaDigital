@@ -1,13 +1,9 @@
-body{
-    background-color: red;
-}
-
 .dropdown {
   position: relative;
   width: 100%;
 }
 
-#dropbtn {
+#theme, #language {
   background-color: #a9a9a9;
   padding: 10px;
   cursor: pointer;
@@ -17,19 +13,21 @@ body{
   width: 317px;
   font-weight: bold;
   font-size: 20px;
+  margin-top: 10px; /* Espaço entre os botões e os dropdowns */
 }
 
 .drop-content {
   display: none;
-  position: absolute;
+  position: absolute; /* Permite que o dropdown apareça abaixo do botão */
   background-color: #a9a9a9;
-  width: 100%;
+  width: 317px; /* Mesmo tamanho que os botões */
   z-index: 1;
   cursor: pointer;
+  margin-top: 5px; /* Espaço entre o botão e a lista */
 }
 
 .drop-content.show {
-  display: block;
+  display: block; /* Torna visível o dropdown */
 }
 
 .drop-content ul {
@@ -45,4 +43,17 @@ body{
 
 .drop-content li:last-child {
   border-bottom: none;
+}
+
+#submit {
+  font-size: 20px;
+  font-weight: bold;
+  color: black;
+  margin-top: 20px; /* Espaço acima do botão "Atualizar" */
+}
+
+#submit-container {
+  display: flex;
+  justify-content: center; /* Centraliza horizontalmente */
+  margin-top: 20px; /* Espaço acima do botão "Atualizar" */
 }
