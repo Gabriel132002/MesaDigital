@@ -1,6 +1,7 @@
-import Home from './page/Home';
+import Backoffice from './page/backoffice/Backoffice';
 import Help from './page/Help';
 import Settings from './page/Settings';
+import Home from './page/Home';
 import {
   BrowserRouter as Router,
   Routes,
@@ -14,8 +15,9 @@ function repositorie() {
       <Routes>
         <Route path="/" element={<Navigate to="/home" />} />
         <Route path="/home" element={<Home />} />
-        <Route path="/help" element={<Help />} />
-        <Route path="/settings" element={<Settings />} />
+        <Route path="/backoffice" element={<Backoffice />} />
+        <Route path="/backoffice/help" element={<Help />} />
+        <Route path="/backoffice/settings" element={<Settings />} />
       </Routes>
     </Router>
   );

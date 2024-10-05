@@ -13,13 +13,13 @@ function SideBar({ onClose }) {
   const location = useLocation();
   const navigate = useNavigate();
   const helpPage = () => {
-    navigate('/help');
+    navigate('/backoffice/help');
   };
-  const homePage = () => {
-    navigate('/home');
+  const Backoffice = () => {
+    navigate('/backoffice');
   };
   const settingsPage = () => {
-    navigate('/settings');
+    navigate('/backoffice/settings');
   };
   return (
     <div id="sideBar">
@@ -31,7 +31,7 @@ function SideBar({ onClose }) {
         </div>
         <div id="list-container">
           <ul id="help-container">
-            {location.pathname !== '/help' && (
+            {location.pathname !== '/backoffice/help' && (
               <li>
                 <button id="sidebar-button-help" onClick={helpPage}>
                   <FaQuestionCircle /> Ajuda
@@ -40,19 +40,21 @@ function SideBar({ onClose }) {
             )}
           </ul>
           <ul id="home-button-container">
-            {location.pathname !== '/home' && (
+            {location.pathname !== '/backoffice' && (
               <li>
-                <button id="home-button" onClick={homePage}>
+                <button id="home-button" onClick={Backoffice}>
                   <FaHome /> Home
                 </button>
               </li>
             )}
             <ul id="config-container">
-              <li>
-                <button id="sidebar-button-config" onClick={settingsPage}>
-                  <FaCog /> Configuração
-                </button>
-              </li>
+              {location.pathname != '/backoffice/settings' && (
+                <li>
+                  <button id="sidebar-button-config" onClick={settingsPage}>
+                    <FaCog /> Configuração
+                  </button>
+                </li>
+              )}
             </ul>
           </ul>
           <ul id="signout-container">
