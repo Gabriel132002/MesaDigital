@@ -4,11 +4,20 @@ import Logo from '../../../assets/images/logo.jpg';
 import { FaBars, FaList, FaMoneyBill, FaUser } from 'react-icons/fa';
 import { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
+import SideBar from '../../SideBar';
 
 function Main() {
   const [activeButton, setActiveButton] = useState(null);
+  const [isSideBarOpen, setIsSideBarOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
+
+  const toggleSideBar = () => {
+    setIsSideBarOpen(!isSideBarOpen);
+  };
+  const handleClose = () => {
+    setIsSideBarOpen(false);
+  };
 
   const userPage = () => {
     navigate('/Backoffice/admin/user');
@@ -34,10 +43,11 @@ function Main() {
     <div className="full-screen">
       <div>
         <div className="top">
-          <img src={Logo} alt="Logo principal" id="logo" />
-          <button id="sidebar-button">
+          <img src={Logo} alt="Logo principal" id="main-logo" />
+          <button id="sidebar-button" onClick={toggleSideBar}>
             <FaBars />
           </button>
+          {isSideBarOpen && <SideBar onClose={handleClose} />}
         </div>
         <div className="main-options">
           {location.pathname !== '/backoffice/admin/user' && (

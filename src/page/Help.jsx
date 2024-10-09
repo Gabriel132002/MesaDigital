@@ -29,7 +29,7 @@ function HelpPage() {
               <FaBars size={30} />
             </button>
           </div>
-          {isSideBarOpen && <SideBar onClose={handleClose}/>}
+          {isSideBarOpen && <SideBar onClose={handleClose} />}
         </div>
       </header>
 

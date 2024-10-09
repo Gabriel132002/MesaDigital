@@ -9,12 +9,21 @@ body {
 #sidebar-button {
   position: absolute;
   right: 10px;
+  top: 10px;
   cursor: pointer;
   font-size: 30px;
 }
 
+#main-logo {
+  width: 200px;
+  height: 150px;
+  margin-top: 10px;
+}
+
 .top {
   display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .full-screen {
@@ -42,13 +51,7 @@ body {
   height: 40px;
   font-size: 20px;
   margin: 5px;
-  background-color: #CC2900;
-}
-
-#logo {
-  display: block;
-  margin: 0 auto;
-  width: 300px;
+  background-color: #cc2900;
 }
 
 @media (min-width: 600px) {

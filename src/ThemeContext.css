@@ -1,12 +1,10 @@
 /* styles.css */
 body.light {
-  background-color: white;  /* Cor de fundo clara */
-  color: black;             /* Cor do texto clara */
+  background-color: white; /* Cor de fundo clara */
+  color: black; /* Cor do texto clara */
 }
 
 body.dark {
-  background-color: black;  /* Cor de fundo escura */
-  color: white;             /* Cor do texto escuro */
+  background-color: black; /* Cor de fundo escura */
+  color: white; /* Cor do texto escuro */
 }
-
-

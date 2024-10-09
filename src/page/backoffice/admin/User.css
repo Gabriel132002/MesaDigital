@@ -1,0 +1,10 @@
+.full-screen {
+  background-color: #cccccc;
+}
+
+#new-user {
+  background-color: #cc2900;
+  width: 169px;
+  margin-top: 5px;
+  color: white;
+}

@@ -6,7 +6,7 @@ import Menu from './page/backoffice/Menu';
 import Sales from './page/backoffice/Sales';
 import Stock from './page/backoffice/Stock';
 import Main from './page/backoffice/admin/Main';
-import User from './page/backoffice/Admin/User';
+import User from './page/backoffice/admin/User';
 import {
   BrowserRouter as Router,
   Routes,
@@ -15,6 +15,7 @@ import {
 } from 'react-router-dom';
 import Activity from './page/backoffice/admin/Activity';
 import Financial from './page/backoffice/admin/Financial';
+import NewUser from './page/backoffice/admin/NewUser';
 
 function repositories() {
   return (
@@ -29,9 +30,10 @@ function repositories() {
         <Route path="/backoffice/sales" element={<Sales />} />
         <Route path="/backoffice/stock" element={<Stock />} />
         <Route path="/backoffice/admin/main" element={<Main />} />
-        <Route path="/backoffice/admin/user" element={<User />} />
-        <Route path="backoffice/admin/activity" element={<Activity />} />
-        <Route path="backoffice/admin/financial" element={<Financial />} />
+        <Route path="/backoffice/admin/User" element={<User />} />
+        <Route path="/backoffice/admin/activity" element={<Activity />} />
+        <Route path="/backoffice/admin/financial" element={<Financial />} />
+        <Route path="/backoffice/admin/NewUser" element={<NewUser />} />
       </Routes>
     </Router>
   );
