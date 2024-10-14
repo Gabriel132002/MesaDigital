@@ -1,0 +1,8 @@
+.content-section {
+  display: flex;
+  gap: 100px;
+}
+
+.column h2 {
+  white-space: nowrap;
+}

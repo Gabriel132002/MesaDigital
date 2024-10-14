@@ -58,7 +58,7 @@ function User() {
             Novo usuário
           </button>
         </section>
-        <section className="content-section">
+        <section id="content-section">
           <div className="column">
             <h2>Área de atendimento</h2>
             <div className="item">

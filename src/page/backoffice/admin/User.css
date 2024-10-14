@@ -8,3 +8,13 @@
   margin-top: 5px;
   color: white;
 }
+
+.column h2 {
+  margin-right: 10px;
+}
+
+#content-section {
+  display: flex;
+  gap: 60px;
+  margin-top: 30px;
+}
