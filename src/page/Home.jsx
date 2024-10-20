@@ -1,12 +1,27 @@
-import { useState } from "react";
+import { useState } from 'react';
+import { FaBars } from 'react-icons/fa';
+import SideBar from './SideBar';
 
 function Home() {
-  const [contador, setContador] = useState(0);
+  const [isSideBarOpen, setIsSideBarOpen] = useState(false);
+
+  const toggleSideBar = () => {
+    setIsSideBarOpen(!isSideBarOpen);
+  };
+
+  const handleClose = () => {
+    setIsSideBarOpen(false);
+  };
   return (
     <div>
-      <div>
-        <button onClick={() => setContador(contador + 1)}>{contador}</button>
-      </div>
+      <header>
+        <button id="side-button" onClick={toggleSideBar}>
+          <FaBars size={30} />
+        </button>
+        {isSideBarOpen && <SideBar onClose={handleClose} />}
+      </header>
+
+      <div>aaaaaaaaaaaaaaaaaaaaaa</div>
     </div>
   );
 }

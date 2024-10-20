@@ -59,6 +59,21 @@ html {
   margin-top: 10px;
 }
 
+#backoffice-container{
+  margin: 0;
+  margin-top: 10px;
+  padding: 0;
+}
+
+#backoffice-button{
+  background-color: transparent;
+  border: none;
+  width: auto;
+  font-size: 20px;
+  display: flex;
+  justify-self: start;
+}
+
 #sidebar-button-config {
   background-color: transparent;
   border: none;

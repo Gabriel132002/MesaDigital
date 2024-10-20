@@ -7,21 +7,21 @@ import Sales from './page/backoffice/Sales';
 import Stock from './page/backoffice/Stock';
 import Main from './page/backoffice/admin/Main';
 import User from './page/backoffice/admin/User';
+import Activity from './page/backoffice/admin/Activity';
+import Financial from './page/backoffice/admin/Financial';
+import NewUser from './page/backoffice/admin/NewUser';
 import {
   BrowserRouter as Router,
   Routes,
   Route,
   Navigate,
 } from 'react-router-dom';
-import Activity from './page/backoffice/admin/Activity';
-import Financial from './page/backoffice/admin/Financial';
-import NewUser from './page/backoffice/admin/NewUser';
 
 function repositories() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Navigate to="/backoffice" />} />
+        <Route path="/" element={<Navigate to="/home" />} />
         <Route path="/home" element={<Home />} />
         <Route path="/backoffice" element={<Backoffice />} />
         <Route path="/backoffice/help" element={<Help />} />

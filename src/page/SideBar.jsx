@@ -12,15 +12,12 @@ import { useLocation, useNavigate } from 'react-router-dom';
 function SideBar({ onClose }) {
   const location = useLocation();
   const navigate = useNavigate();
-  const helpPage = () => {
-    navigate('/backoffice/help');
+
+  const navigateTo = (path) => {
+    navigate(path);
+    onClose();
   };
-  const Backoffice = () => {
-    navigate('/backoffice');
-  };
-  const settingsPage = () => {
-    navigate('/backoffice/settings');
-  };
+
   return (
     <div id="sideBar">
       <div id="container">
@@ -30,40 +27,66 @@ function SideBar({ onClose }) {
           </button>
         </div>
         <div id="list-container">
-          <ul id="help-container">
-            {location.pathname !== '/backoffice/help' && (
+          {/* Exibe apenas o botão de Entrar se estiver na rota "/home" */}
+          {location.pathname === '/home' ? (
+            <ul id="home-button-container">
               <li>
-                <button id="sidebar-button-help" onClick={helpPage}>
-                  <FaQuestionCircle /> Ajuda
+                <button
+                  id="home-button"
+                  onClick={() => navigateTo('/backoffice')}
+                >
+                  <FaHome /> Entrar
                 </button>
               </li>
-            )}
-          </ul>
-          <ul id="home-button-container">
-            {location.pathname !== '/backoffice' && (
-              <li>
-                <button id="home-button" onClick={Backoffice}>
-                  <FaHome /> Home
-                </button>
-              </li>
-            )}
-            <ul id="config-container">
-              {location.pathname != '/backoffice/settings' && (
+            </ul>
+          ) : (
+            <>
+              {/* Exibe os outros botões se não estiver na rota /home */}
+              <ul id="backoffice-container">
+                {location.pathname !== '/backoffice' && (
+                  <li>
+                    <button
+                      id="backoffice-button"
+                      onClick={() => navigateTo('/backoffice')}
+                    >
+                      <FaHome /> Home
+                    </button>
+                  </li>
+                )}
+              </ul>
+              <ul id="help-container">
+                {location.pathname !== '/backoffice/help' && (
+                  <li>
+                    <button
+                      id="sidebar-button-help"
+                      onClick={() => navigateTo('/backoffice/help')}
+                    >
+                      <FaQuestionCircle /> Ajuda
+                    </button>
+                  </li>
+                )}
+              </ul>
+              <ul id="config-container">
+                {location.pathname !== '/backoffice/settings' && (
+                  <li>
+                    <button
+                      id="sidebar-button-config"
+                      onClick={() => navigateTo('/backoffice/settings')}
+                    >
+                      <FaCog /> Configuração
+                    </button>
+                  </li>
+                )}
+              </ul>
+              <ul id="signout-container">
                 <li>
-                  <button id="sidebar-button-config" onClick={settingsPage}>
-                    <FaCog /> Configuração
+                  <button id="sidebar-button-signout">
+                    <FaSignOutAlt /> Sair
                   </button>
                 </li>
-              )}
-            </ul>
-          </ul>
-          <ul id="signout-container">
-            <li>
-              <button id="sidebar-button-signout">
-                <FaSignOutAlt /> Sair
-              </button>
-            </li>
-          </ul>
+              </ul>
+            </>
+          )}
         </div>
       </div>
     </div>
