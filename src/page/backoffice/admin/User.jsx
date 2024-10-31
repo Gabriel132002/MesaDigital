@@ -10,14 +10,15 @@ function User() {
   const navigate = useNavigate();
   let cpf;
   let permissions;
+  let name;
 
   const previousPage = () => {
     navigate('/backoffice/admin/main');
   };
 
   const newUserPage = () => {
-    navigate('/backoffice/admin/newUser')
-  }
+    navigate('/backoffice/admin/newUser');
+  };
 
   const toggleSideBar = () => {
     setIsSideBarOpen(!isSideBarOpen);
@@ -62,7 +63,7 @@ function User() {
           <div className="column">
             <h2>Área de atendimento</h2>
             <div className="item">
-              <p>Nome</p>
+              <p>Nome {name}</p>
               <p>CPF {cpf}</p>
               <p>Permissão {permissions}</p>
             </div>
@@ -72,8 +73,7 @@ function User() {
               <p>Permissão {permissions}</p>
             </div>
           </div>
-
-          <div className='column'>
+          <div className="column">
             <h2>Cargo</h2>
           </div>
         </section>

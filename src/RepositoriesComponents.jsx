@@ -10,6 +10,7 @@ import User from './page/backoffice/admin/User';
 import Activity from './page/backoffice/admin/Activity';
 import Financial from './page/backoffice/admin/Financial';
 import NewUser from './page/backoffice/admin/NewUser';
+import Auth from './page/Authentication/Auth';
 import {
   BrowserRouter as Router,
   Routes,
@@ -34,6 +35,7 @@ function repositories() {
         <Route path="/backoffice/admin/activity" element={<Activity />} />
         <Route path="/backoffice/admin/financial" element={<Financial />} />
         <Route path="/backoffice/admin/NewUser" element={<NewUser />} />
+        <Route path="/Authentication/Auth" element={<Auth />} />
       </Routes>
     </Router>
   );

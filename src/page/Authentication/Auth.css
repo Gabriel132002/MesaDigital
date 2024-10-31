@@ -1,0 +1,65 @@
+.Logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+}
+
+form {
+  display: grid;
+}
+
+.Logo img {
+  width: 300px;
+  height: auto;
+  margin-top: 40px;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: fit-content;
+  justify-self: center;
+  gap: 10px;
+  margin-top: auto;
+}
+
+#icons-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: fit-content;
+}
+
+#email-icon {
+  align-self: self-start;
+  position: absolute;
+  transform: translateX(-105%);
+  margin-top: 5px;
+}
+
+#password-icon {
+  align-self: self-start;
+  position: absolute;
+  transform: translateX(-105%);
+  margin-top: 50px;
+}
+
+.input-container input {
+  width: 300px;
+  height: 30px;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: solid 2px;
+}
+
+.input-container input::placeholder {
+  color: #cc2900;
+  font-size: larger;
+}
+
+h1 {
+  justify-self: center;
+}

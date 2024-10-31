@@ -33,7 +33,7 @@ function SideBar({ onClose }) {
               <li>
                 <button
                   id="home-button"
-                  onClick={() => navigateTo('/backoffice')}
+                  onClick={() => navigateTo('/Authentication/Auth')}
                 >
                   <FaHome /> Entrar
                 </button>
