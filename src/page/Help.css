@@ -21,7 +21,6 @@ html {
 
 #logo-help {
   width: 121px;
-  height: auto;
 }
 
 #button-container {
@@ -65,10 +64,10 @@ html {
   gap: 20px; /* Espaço entre as divs */
 }
 
-#faq-content, 
+#faq-content,
 #support-container {
   flex: 1;
-  min-width: 250px; /* Largura mínima para manter a legibilidade em telas menores */
+  min-width: 250px;
 }
 
 #support-container {
@@ -77,15 +76,17 @@ html {
   flex-direction: column;
 }
 
-#support-container input,
-#text-box {
-  width: 100%;
-  padding: 12px;
-  margin: 10px 0;
-}
-
 #client-data-container {
   font-size: 15px;
+  max-width: 100%;
+}
+
+#name-input,
+#email-input,
+#text-box {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
 }
 
 #client-opinion {
@@ -125,6 +126,15 @@ html {
   #support-container {
     width: 100%;
     margin: 0 auto;
+  }
+
+  #logo-help {
+    width: 60px;
+  }
+
+  #logo-container {
+    display: flex;
+    align-self: flex-start;
   }
 
   #btn-container {

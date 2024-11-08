@@ -6,18 +6,13 @@ import SideBar from '../../SideBar';
 import { useNavigate } from 'react-router-dom';
 
 function User() {
+  
   const [isSideBarOpen, setIsSideBarOpen] = useState(false);
   const navigate = useNavigate();
-  let cpf;
-  let permissions;
-  let name;
 
-  const previousPage = () => {
-    navigate('/backoffice/admin/main');
-  };
-
-  const newUserPage = () => {
-    navigate('/backoffice/admin/newUser');
+  const navigateTo = (path) => {
+    navigate(path);
+    onclose();
   };
 
   const toggleSideBar = () => {
@@ -29,7 +24,11 @@ function User() {
   return (
     <div className="full-screen ">
       <header>
-        <button type="button" id="return-header" onClick={previousPage}>
+        <button
+          type="button"
+          id="return-header"
+          onClick={() => navigateTo('/backoffice/admin/main')}
+        >
           <FaArrowLeft />
         </button>
 
@@ -55,7 +54,11 @@ function User() {
           </div>
         </section>
         <section className="section-all-content">
-          <button type="button" id="new-user" onClick={newUserPage}>
+          <button
+            type="button"
+            id="new-user"
+            onClick={() => navigateTo('/backoffice/admin/newUser')}
+          >
             Novo usuário
           </button>
         </section>
@@ -63,14 +66,14 @@ function User() {
           <div className="column">
             <h2>Área de atendimento</h2>
             <div className="item">
-              <p>Nome {name}</p>
-              <p>CPF {cpf}</p>
-              <p>Permissão {permissions}</p>
+              <p>Nome</p>
+              <p>CPF</p>
+              <p>Permissão</p>
             </div>
             <div className="item">
               <p>Nome</p>
-              <p>CPF {cpf}</p>
-              <p>Permissão {permissions}</p>
+              <p>CPF </p>
+              <p>Permissão</p>
             </div>
           </div>
           <div className="column">
