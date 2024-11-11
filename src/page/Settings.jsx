@@ -4,8 +4,10 @@ import SideBar from './SideBar';
 import './Settings.css';
 import Logo from '../assets/images/logo.jpg';
 import DropDownProp from '../assets/props/DropDownProp';
+import { useTranslation } from 'react-i18next';
 
 function Settings() {
+  const { t } = useTranslation();
   const [isSideBarOpen, setIsSideBarOpen] = useState(false);
 
   const toggleSideBar = () => {
@@ -27,7 +29,7 @@ function Settings() {
         </header>
         <div>
           <main id="main-content">
-            <h1>Configurações</h1>
+            <h1>{t('settings')}</h1>
             <section id="theme-config-container">
               <DropDownProp />
             </section>

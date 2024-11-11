@@ -49,12 +49,8 @@ function HelpPage() {
           <div id="support-container">
             Contato suporte
             <div id="client-data-container">
-              <div>
-                Nome: <input type="text" name="name" id="name" />
-              </div>
-              <div>
-                Email: <input type="email" name="email" id="email" />
-              </div>
+              Nome: <input type="text" name="name" id="name-input" />
+              Email: <input type="email" name="email" id="email-input" />
             </div>
             <div id="client-opinion">
               Assunto
