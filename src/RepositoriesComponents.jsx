@@ -2,9 +2,9 @@ import Backoffice from './page/backoffice/Backoffice';
 import Help from './page/Help';
 import Settings from './page/Settings';
 import Home from './page/Home';
-import Menu from './page/backoffice/Menu';
-import Sales from './page/backoffice/Sales';
-import Stock from './page/backoffice/Stock';
+import MenuConfig from './page/backoffice/menuConfig/MenuConfig';
+import Sales from './page/backoffice/sales/Sales';
+import Stock from './page/backoffice/stock/Stock';
 import Main from './page/backoffice/admin/Main';
 import User from './page/backoffice/admin/User';
 import Activity from './page/backoffice/admin/Activity';
@@ -27,7 +27,7 @@ function repositories() {
         <Route path="/backoffice" element={<Backoffice />} />
         <Route path="/backoffice/help" element={<Help />} />
         <Route path="/backoffice/settings" element={<Settings />} />
-        <Route path="/backoffice/menu" element={<Menu />} />
+        <Route path="/backoffice/menu" element={<MenuConfig />} />
         <Route path="/backoffice/sales" element={<Sales />} />
         <Route path="/backoffice/stock" element={<Stock />} />
         <Route path="/backoffice/admin/main" element={<Main />} />
