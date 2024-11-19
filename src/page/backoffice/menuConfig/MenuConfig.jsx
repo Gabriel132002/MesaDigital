@@ -1,26 +1,26 @@
-﻿import { useState } from 'react';
-
+﻿import React, { useState } from 'react';
+import { FaImage } from 'react-icons/fa'; // Ícone para imagem
 import './MenuConfig.css';
 
 function MenuConfig() {
   const [menuItems, setMenuItems] = useState([]);
-  const [newItem, setNewItem] = useState({ title: '', section: '', name: '', description: '', price: '' });
+  const [newItem, setNewItem] = useState({ title: '', name: '', description: '', price: '' });
   const [editingItem, setEditingItem] = useState(null);
   const [image, setImage] = useState(null);
 
-  // Handle input changes
+  // Manipular mudanças nos campos de entrada
   const handleInputChange = (field, value) => {
     setNewItem({ ...newItem, [field]: value });
   };
 
-  // Handle adding a new item
+  // Adicionar novo item
   const handleAddItem = () => {
     setMenuItems([...menuItems, { ...newItem, image }]);
-    setNewItem({ title: '', section: '', name: '', description: '', price: '' });
+    setNewItem({ title: '', name: '', description: '', price: '' });
     setImage(null);
   };
 
-  // Handle image upload
+  // Upload de imagem
   const handleImageUpload = (e) => {
     const file = e.target.files[0];
     if (file) {
@@ -28,7 +28,7 @@ function MenuConfig() {
     }
   };
 
-  // Handle editing or deleting an item
+  // Edição e exclusão de itens
   const handleEditOrDelete = (item, action) => {
     if (action === 'edit') {
       setEditingItem(item);
@@ -39,43 +39,46 @@ function MenuConfig() {
     }
   };
 
-  // Handle save edit
+  // Salvar edições
   const handleSaveEdit = () => {
     setMenuItems(menuItems.map((item) => (item === editingItem ? { ...newItem, image } : item)));
     setEditingItem(null);
-    setNewItem({ title: '', section: '', name: '', description: '', price: '' });
+    setNewItem({ title: '', name: '', description: '', price: '' });
     setImage(null);
   };
 
   return (
     <div className="menu-config">
-      <h1>Configuração do Cardápio</h1>
+      <div className="header">
+        <h1>Inserir Título</h1>
+        <label htmlFor="image-upload" className="image-upload-label">
+          <FaImage />
+        </label>
+        <input
+          type="file"
+          id="image-upload"
+          style={{ display: 'none' }}
+          onChange={handleImageUpload}
+        />
+      </div>
+
       <div className="menu-inputs">
         <input
           type="text"
-          placeholder="Inserir Título"
+          placeholder="Inserir seção"
           value={newItem.title}
           onChange={(e) => handleInputChange('title', e.target.value)}
-          onKeyDown={(e) => e.key === 'Enter' && document.getElementById('section-input').focus()}
-        />
-        <input
-          type="text"
-          id="section-input"
-          placeholder="Inserir Seção"
-          value={newItem.section}
-          onChange={(e) => handleInputChange('section', e.target.value)}
           onKeyDown={(e) => e.key === 'Enter' && document.getElementById('name-input').focus()}
         />
         <input
           type="text"
           id="name-input"
-          placeholder="Nome do Item"
+          placeholder="Nome"
           value={newItem.name}
           onChange={(e) => handleInputChange('name', e.target.value)}
           onKeyDown={(e) => e.key === 'Enter' && document.getElementById('description-input').focus()}
         />
-        <input
-          type="text"
+        <textarea
           id="description-input"
           placeholder="Descrição"
           value={newItem.description}
@@ -85,21 +88,13 @@ function MenuConfig() {
         <input
           type="text"
           id="price-input"
-          placeholder="Preço"
+          placeholder="Preço R$ 00,00"
           value={newItem.price}
           onChange={(e) => handleInputChange('price', e.target.value)}
           onKeyDown={(e) => e.key === 'Enter' && handleAddItem()}
         />
-        <label htmlFor="image-upload" className="image-upload-label">
-          {image ? <img src={image} alt="Imagem do item" /> : 'Selecionar Imagem'}
-        </label>
-        <input
-          type="file"
-          id="image-upload"
-          style={{ display: 'none' }}
-          onChange={handleImageUpload}
-        />
       </div>
+
       {editingItem ? (
         <button onClick={handleSaveEdit}>Salvar Edição</button>
       ) : (
@@ -117,9 +112,8 @@ function MenuConfig() {
             }}
             onDoubleClick={() => handleEditOrDelete(item, 'delete')}
           >
-            {item.image && <img src={item.image} alt={item.name} />}
+            {item.image && <img src={item.image} alt="Imagem do item" />}
             <h3>{item.title}</h3>
-            <p><strong>Seção:</strong> {item.section}</p>
             <p><strong>Nome:</strong> {item.name}</p>
             <p><strong>Descrição:</strong> {item.description}</p>
             <p><strong>Preço:</strong> R$ {item.price}</p>
