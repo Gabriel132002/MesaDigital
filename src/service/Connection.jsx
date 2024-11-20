@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 
-function Connection(endpoint) {
+// Custom hook para fazer uma requisição
+function useConnection(endpoint) {
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -13,7 +14,7 @@ function Connection(endpoint) {
       try {
         const response = await fetch(endpoint);
         if (!response.ok) {
-          throw new Error(`Erro: ${response.statusText}`);
+          throw new Error(response.statusText);
         }
         const result = await response.json();
         setData(result);
@@ -30,4 +31,4 @@ function Connection(endpoint) {
   return { data, error, loading };
 }
 
-export default Connection;
+export default useConnection;
