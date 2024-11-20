@@ -5,61 +5,78 @@
   margin: 20px;
 }
 
-form {
-  display: grid;
-}
-
 .Logo img {
   width: 300px;
   height: auto;
   margin-top: 40px;
 }
 
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .input-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-width: fit-content;
-  justify-self: center;
-  gap: 10px;
-  margin-top: auto;
+  gap: 20px;
 }
 
-#icons-container {
+.input-wrapper {
+  position: relative;
   display: flex;
-  flex-direction: column;
-  gap: 10px;
-  max-width: fit-content;
-}
-
-#email-icon {
-  align-self: self-start;
-  position: absolute;
-  transform: translateX(-105%);
-  margin-top: 5px;
-}
-
-#password-icon {
-  align-self: self-start;
-  position: absolute;
-  transform: translateX(-105%);
-  margin-top: 50px;
-}
-
-.input-container input {
+  align-items: center;
   width: 300px;
-  height: 30px;
-  border-top: none;
-  border-left: none;
-  border-right: none;
-  border-bottom: solid 2px;
 }
 
-.input-container input::placeholder {
-  color: #cc2900;
+.icon {
+  position: absolute;
+  left: 10px;
+  color: #ff6200;
+  font-size: 20px;
+}
+
+input {
+  width: 100%;
+  padding: 10px 10px 10px 40px; /* Espaço para o ícone */
+  border: none;
+  border-bottom: 2px solid #ff8000;
+  font-size: 16px;
+}
+
+input::placeholder {
+  color: #ff6200;
   font-size: larger;
 }
 
-h1 {
-  justify-self: center;
+input:focus {
+  outline: none;
+  border-bottom-color: #ff8000;
+}
+
+button {
+  width: 300px;
+  padding: 10px;
+  background-color: #ff6200;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #b36500;
+}
+
+/* Mensagem de erro */
+.error-message {
+  color: red;
+  text-align: center;
+  font-size: 14px;
+  margin-bottom: 15px;
 }

@@ -3,7 +3,7 @@ import './NewRequest.css';
 
 function NewRequest() {
   return (
-    <div className="new-request">
+    <div className="new-request" >
       <h1>Novo Pedido</h1>
       <form className="new-request-form">
         <label>
@@ -22,10 +22,7 @@ function NewRequest() {
         </label>
         <label>
           Mesa:
-          <select>
-            <option value="">Selecione</option>
-            {/* Opções de mesas */}
-          </select>
+          <input type="number" min="1" />
         </label>
         <label>
           Quantidade:
