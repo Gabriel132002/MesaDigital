@@ -1,62 +1,93 @@
-/* Home.css */
-
+/* Estilo global para garantir que a tela seja rolável */
 #container {
+    height: 100vh; /* Altura total da viewport */
+    overflow-y: auto; /* Ativa o scroll vertical */
     display: flex;
     flex-direction: column;
-    align-items: center;
-    padding: 20px;
 }
 
-#side-button-container {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    z-index: 1000; /* Ensure it stays above other elements */
+/* TopNavBar com estilo de carrossel horizontal */
+.top-navbar {
+    display: flex;
+    overflow-x: auto; /* Ativa o scroll horizontal */
+    white-space: nowrap; /* Mantém os itens em linha única */
+    padding: 10px 0;
+    margin-bottom: 20px;
+    scroll-behavior: smooth; /* Scroll suave */
+    gap: 10px; /* Espaço entre os botões */
+    width: -webkit-fill-available; /* Preenche o espaço disponível */
+    width: fill-available;
+}
+
+/* Estilização do scrollbar para o TopNavBar */
+.top-navbar::-webkit-scrollbar {
+    display: none; /* Esconde o scrollbar para estilo mais limpo */
+}
+
+/* Botões do TopNavBar */
+.nav-button {
+    font-size: 14px;
+    font-weight: bold;
+    background-color: #ff8000; /* Cor principal */
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    flex-shrink: 0; /* Garante que os botões não encolham */
+    height: fit-content;
+    width: max-content;
+}
+
+.nav-button:hover {
+    background-color: #b35100;
+}
+
+.nav-button:active {
+    background-color: #943900;
+}
+
+/* Categorias */
+.menu-category {
+    margin-bottom: 40px;
+    padding: 10px 15px;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.menu-category h2 {
+    font-size: 24px;
+    color: #333;
+    text-transform: uppercase;
+    border-bottom: 2px solid #ff6200;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+}
+
+/* Garantindo que a tela seja responsiva */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    overflow: hidden; /* Impede o scroll duplicado */
 }
 
 .menu-container {
-    max-width: 800px;
-    width: 100%;
-    margin-top: 20px;
-    background-color: #f8f8f8; /* Light background for contrast */
-    border-radius: 8px; /* Rounded corners */
-    padding: 20px; /* Space inside the menu */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    flex-grow: 1; /* Ocupa todo o espaço restante para scroll */
+    padding: 0 20px;
+    overflow-y: auto; /* Ativa o scroll interno */
 }
 
-.menu-section {
-    margin-bottom: 20px; /* Space between sections */
-}
-
-.menu-item {
-    display: flex;
-    justify-content: space-between; /* Space between details and button */
-    padding: 10px;
-    border: 1px solid #ddd; /* Light border for items */
-    border-radius: 5px; /* Rounded item borders */
-    transition: background-color 0.3s; /* Smooth hover effect */
-}
-
-.menu-item:hover {
-    background-color: #f1f1f1; /* Highlight on hover */
-}
-
-.item-details h3 {
-    margin: 0; /* Remove default margin */
-}
-
-@media (min-width: 768px) {
-    #container {
-        flex-direction: row;
-        align-items: flex-start;
+/* Responsividade para telas menores */
+@media (max-width: 768px) {
+    .nav-button {
+        font-size: 12px;
+        padding: 8px 10px;
     }
 
-    #side-button-container {
-        position: static;
-        margin-right: 20px;
-    }
-
-    .menu-container {
-        margin-top: 0;
+    .menu-category h2 {
+        font-size: 20px;
     }
 }

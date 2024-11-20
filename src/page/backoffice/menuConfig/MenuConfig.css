@@ -1,0 +1,175 @@
+﻿#global-sales-card {
+  position: relative;
+  justify-self: center;
+  background-color: #a9a9a9;
+  width: 40vw;
+  height: 80vh;
+  margin-top: 20px;
+  border-radius: 8px;
+}
+
+#Sales-page-card {
+  position: relative; /* Define base para posicionamento relativo */
+  background-color: #ff9933;
+  width: 90%;
+  height: 20vw;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  justify-self: center;
+  top: 2vh;
+  border: 2px solid black;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  overflow: hidden; /* Impede que elementos saiam dos limites */
+}
+
+#card-title {
+  position: absolute; /* Posiciona dentro de #Sales-page-card */
+  bottom: 10px; /* Alinha com a parte inferior */
+  left: 5px;
+  color: white;
+  font-weight: bold;
+}
+
+#create-section {
+  text-decoration: underline;
+  padding: 20px;
+}
+
+input {
+  background-color: transparent;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+}
+
+#form-sales-page {
+  width: 100%;
+  display: flex;
+}
+
+#input-container {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  gap: 10px;
+}
+
+#price {
+  margin-top: 2px;
+}
+
+#info-container {
+  display: flex;
+  justify-content: space-between; /* Espaço entre texto e imagem */
+  align-items: flex-start; /* Alinha o topo dos itens */
+  margin-top: 50px;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+#text-container {
+  display: flex;
+  flex-direction: column; /* Organiza o texto e a lista verticalmente */
+  flex: 1; /* O texto ocupa o espaço restante */
+  height: 12vh;
+  width: 20%;
+}
+
+#item-title {
+  font-weight: bold; /* Torne o título mais destacado */
+  margin-bottom: 1px; /* Espaço entre o título e a lista */
+}
+
+#info-image {
+  flex-shrink: 0;
+  margin-left: 20px;
+  margin-right: 1vw;
+  margin-bottom: 1vw;
+}
+
+ul,
+li {
+  list-style: none;
+}
+
+#image-container {
+  position: absolute;
+  right: 2%;
+  cursor: pointer;
+  border-radius: 5px;
+  height: 12vh;
+  width: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+#image-container p {
+  text-align: center;
+  color: #007bff;
+  margin: 0;
+}
+
+#image-container img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+input[type='file'] {
+  display: none;
+}
+
+#info-image,
+#image-container img {
+  height: 100px; /* Altura padronizada */
+  width: 150px; /* Largura padronizada */
+  object-fit: cover; /* Mantém proporções */
+  border-radius: 5px; /* Para uniformidade visual */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Estilo de sombra */
+}
+
+@media (max-width: 720px) {
+  #global-sales-card {
+    width: 80%;
+    height: 100px;
+    background-color: transparent;
+  }
+  #Sales-page-card {
+    width: 100%;
+    height: 100%;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+  }
+}
+
+@media (max-width: 720px) {
+  #title-card {
+    width: 50%;
+  }
+}
+
+@media (max-width: 720px) {
+  #image-container {
+    position: absolute;
+    right: 2%;
+    cursor: pointer;
+    border-radius: 5px;
+    height: auto;
+    width: 100%;
+    display: flex;
+    align-items: self-end;
+    justify-content: end;
+    overflow: hidden;
+  }
+
+  #info-image,
+  #image-container img {
+    width: 80%; /* Ajusta a largura para 80% do container */
+    height: auto; /* Mantém a proporção original */
+    max-width: 150px; /* Limita o tamanho máximo para não exagerar */
+  }
+}
