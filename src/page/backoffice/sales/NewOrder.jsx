@@ -3,11 +3,14 @@ import './NewOrder.css'; // Importa o CSS específico para o componente
 
 function NewOrder() {
   const [orderDetails, setOrderDetails] = useState({
-    title: '',
-    name: '',
-    description: '',
-    price: '',
+    number: '', // Número da comanda
+    employee: '', // Funcionário responsável
+    table: '', // Número da mesa
+    observation: '', // Observação
   });
+
+  // Simulando funcionários cadastrados (substitua por dados reais, se necessário)
+  const employees = []; // Deixe vazio para testar a mensagem "Nenhum funcionário cadastrado"
 
   const handleInputChange = (field, value) => {
     setOrderDetails({ ...orderDetails, [field]: value });
@@ -16,32 +19,52 @@ function NewOrder() {
   return (
     <div className="new-order-container">
       <div className="new-order-card">
-        <h1>Create New Order</h1>
+        <h1>Criar Comanda</h1>
         <div className="new-order-form">
+          {/* Número da Comanda */}
           <input
             type="text"
-            placeholder="Order Title"
-            value={orderDetails.title}
-            onChange={(e) => handleInputChange('title', e.target.value)}
+            placeholder="Número da Comanda"
+            value={orderDetails.number}
+            onChange={(e) => handleInputChange('number', e.target.value)}
           />
+
+          {/* Funcionário Responsável */}
+          <select
+            value={orderDetails.employee}
+            onChange={(e) => handleInputChange('employee', e.target.value)}
+          >
+            <option value="" disabled>
+              Selecionar Funcionário
+            </option>
+            {employees.length > 0 ? (
+              employees.map((employee, index) => (
+                <option key={index} value={employee}>
+                  {employee}
+                </option>
+              ))
+            ) : (
+              <option disabled>Nenhum funcionário cadastrado</option>
+            )}
+          </select>
+
+          {/* Número da Mesa */}
           <input
             type="text"
-            placeholder="Name"
-            value={orderDetails.name}
-            onChange={(e) => handleInputChange('name', e.target.value)}
+            placeholder="Número da Mesa"
+            value={orderDetails.table}
+            onChange={(e) => handleInputChange('table', e.target.value)}
           />
+
+          {/* Observação */}
           <textarea
-            placeholder="Description"
-            value={orderDetails.description}
-            onChange={(e) => handleInputChange('description', e.target.value)}
+            placeholder="Observação"
+            value={orderDetails.observation}
+            onChange={(e) => handleInputChange('observation', e.target.value)}
           />
-          <input
-            type="text"
-            placeholder="Price"
-            value={orderDetails.price}
-            onChange={(e) => handleInputChange('price', e.target.value)}
-          />
-          <button className="new-order-button">Add Order</button>
+
+          {/* Botão Criar Comanda */}
+          <button className="new-order-button">Criar Comanda</button>
         </div>
       </div>
     </div>

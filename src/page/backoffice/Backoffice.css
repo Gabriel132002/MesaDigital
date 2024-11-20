@@ -56,8 +56,9 @@ button:hover {
   padding: 0;
 }
 
-/* #btn-cardapio-container {
-} */
+#btns-container {
+  margin-top: 2vh;
+}
 
 #btn-vendas-container {
   margin-top: 10px;

@@ -1,15 +1,15 @@
 ﻿/* Centralização e responsividade */
-.new-order-container {
+.new-request-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh; /* Centraliza verticalmente */
+    min-height: 100vh;
     background-color: #f5f5f5;
     padding: 20px;
 }
 
-.new-order-card {
-    background-color: #E5E5E5; /* Cor do container atualizada */
+.new-request-card {
+    background-color: #E5E5E5; /* Cor do container ajustada */
     padding: 20px;
     border-radius: 15px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -17,40 +17,36 @@
     max-width: 900px;
 }
 
-.new-order-card h1 {
+.new-request-card h1 {
     text-align: center;
     margin-bottom: 20px;
     font-size: 2rem;
     color: #333;
 }
 
-.new-order-form {
+.new-request-form {
     display: flex;
     flex-direction: column;
     gap: 15px;
 }
 
-.new-order-form input,
-.new-order-form select,
-.new-order-form textarea {
+.new-request-form select,
+.new-request-form input,
+.new-request-form textarea {
     width: 100%;
     padding: 10px;
-    font-size: 1rem;
+    font-size: 1rem; /* Mantendo o tamanho da fonte consistente */
+    font-family: 'Poppins', sans-serif; /* Fonte igual para todos os campos */
     border: 1px solid #ccc;
     border-radius: 5px;
 }
 
-.new-order-form select {
-    color: #333; /* Cor do texto no combobox */
+.new-request-form textarea {
+    resize: none; /* Desabilita o redimensionamento do campo de observação */
+    height: 100px; /* Torna o campo mais alto para visualização confortável */
 }
 
-.new-order-form textarea {
-    height: 100px; /* Aumenta a altura do campo de observação */
-    resize: vertical;
-    font-family: 'Poppins', sans-serif; /* Mesma fonte dos outros campos */
-}
-
-.new-order-button {
+.new-request-button {
     padding: 10px 20px;
     background-color: #E65100;
     color: #fff;
@@ -61,18 +57,18 @@
     transition: background-color 0.3s ease;
 }
 
-.new-order-button:hover {
+.new-request-button:hover {
     background-color: #d44400;
 }
 
 /* Responsividade */
 @media (max-width: 768px) {
-    .new-order-card {
+    .new-request-card {
         padding: 15px;
         max-width: 100%;
     }
 
-    .new-order-card h1 {
+    .new-request-card h1 {
         font-size: 1.5rem;
     }
 }

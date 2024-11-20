@@ -1,4 +1,4 @@
-/* Estilo geral */
+﻿/* Estilo geral */
 body {
     margin: 0;
     padding: 0;
@@ -7,7 +7,7 @@ body {
   }
 
   /* Contêiner principal */
-  .order {
+  .order-details {
     padding: 40px;
     text-align: center;
     max-width: 1200px;
@@ -15,21 +15,21 @@ body {
   }
 
   /* Título */
-  .order-title {
+  .order-details-title {
     font-size: 2rem;
     color: #333;
     margin-bottom: 20px;
   }
 
   /* Botões */
-  .order-buttons {
+  .order-details-buttons {
     display: flex;
     justify-content: center; /* Centraliza os botões */
     gap: 20px; /* Espaçamento entre os botões */
     margin: 20px 0;
   }
 
-  .order-buttons button {
+  .order-details-buttons button {
     padding: 10px 20px;
     background-color: #E65100;
     color: white;
@@ -40,62 +40,63 @@ body {
     transition: background-color 0.3s ease;
   }
 
-  .order-buttons button:hover {
+  .order-details-buttons button:hover {
     background-color: #D44400;
   }
 
   /* Seção de listas */
-  .order-section {
+  .order-details-section {
     display: flex;
     justify-content: space-between;
     gap: 20px;
     margin-top: 20px;
   }
 
-  .order-open,
-  .order-closed {
+  .order-details-launched,
+  .order-details-completed {
     width: 48%;
-    background-color: #E5E5E5; /* Cor do container das listas */
+    background-color: #E5E5E5; /* Cor do container */
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 20px;
   }
 
-  .order-open h2,
-  .order-closed h2 {
+  .order-details-launched h2,
+  .order-details-completed h2 {
     font-size: 1.5rem;
     color: #333;
     margin-bottom: 10px;
   }
 
-  .order-open ul li,
-  .order-closed ul li {
+  .order-details-launched ul li,
+  .order-details-completed ul li {
     font-size: 1rem;
     color: #666;
     margin: 5px 0;
-    cursor: pointer; /* Indica que é clicável */
+    list-style: none; /* Remove os marcadores da lista */
   }
 
-  .order-open ul li:hover,
-  .order-closed ul li:hover {
+  .order-details-launched ul li:hover,
+  .order-details-completed ul li:hover {
     color: #333;
     text-decoration: underline;
+    cursor: pointer;
   }
 
   /* Responsividade */
   @media (max-width: 768px) {
-    .order-buttons {
+    .order-details-buttons {
       flex-direction: column; /* Alinha os botões verticalmente */
       align-items: center;
     }
 
-    .order-section {
-      flex-direction: column;
+    .order-details-section {
+      flex-direction: column; /* Alinha os containers verticalmente */
       align-items: center;
     }
 
-    .order-open,
-    .order-closed {
+    .order-details-launched,
+    .order-details-completed {
       width: 90%;
       margin-bottom: 20px;
     }
