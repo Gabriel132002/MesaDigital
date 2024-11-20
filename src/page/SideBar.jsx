@@ -1,4 +1,3 @@
-import { useTranslation } from 'react-i18next';
 import './SideBar.css';
 import {
   FaBars,
@@ -11,7 +10,6 @@ import { useLocation, useNavigate } from 'react-router-dom';
 
 // eslint-disable-next-line react/prop-types
 function SideBar({ onClose }) {
-  const { t } = useTranslation();
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -63,7 +61,7 @@ function SideBar({ onClose }) {
                       id="sidebar-button-help"
                       onClick={() => navigateTo('/backoffice/help')}
                     >
-                      <FaQuestionCircle /> {t('Help')}
+                      <FaQuestionCircle /> Ajuda
                     </button>
                   </li>
                 )}
@@ -73,7 +71,7 @@ function SideBar({ onClose }) {
                   <li>
                     <button
                       id="sidebar-button-config"
-                      // onClick={() => navigateTo('/backoffice/settings')}
+                      onClick={() => navigateTo('/backoffice/settings')}
                     >
                       <FaCog /> Configuração
                     </button>
@@ -83,7 +81,7 @@ function SideBar({ onClose }) {
               <ul id="signout-container">
                 <li>
                   <button id="sidebar-button-signout">
-                    <FaSignOutAlt /> {t('Log out')}
+                    <FaSignOutAlt /> Sair
                   </button>
                 </li>
               </ul>

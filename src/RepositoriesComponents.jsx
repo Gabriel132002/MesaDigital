@@ -4,7 +4,8 @@ import Settings from './page/Settings';
 import Home from './page/Home';
 import Menu from './page/backoffice/Menu';
 import Sales from './page/backoffice/Sales';
-import Stock from './page/backoffice/Stock';
+import Stock from './page/backoffice/estoque/Stock';
+import CriaItem from './page/backoffice/estoque/CriaItem';
 import Main from './page/backoffice/admin/Main';
 import User from './page/backoffice/admin/User';
 import Activity from './page/backoffice/admin/Activity';
@@ -29,13 +30,14 @@ function repositories() {
         <Route path="/backoffice/settings" element={<Settings />} />
         <Route path="/backoffice/menu" element={<Menu />} />
         <Route path="/backoffice/sales" element={<Sales />} />
-        <Route path="/backoffice/stock" element={<Stock />} />
+        <Route path="/backoffice/estoque/stock" element={<Stock />} />
         <Route path="/backoffice/admin/main" element={<Main />} />
         <Route path="/backoffice/admin/User" element={<User />} />
         <Route path="/backoffice/admin/activity" element={<Activity />} />
         <Route path="/backoffice/admin/financial" element={<Financial />} />
         <Route path="/backoffice/admin/NewUser" element={<NewUser />} />
         <Route path="/Authentication/Auth" element={<Auth />} />
+        <Route path="/backoffice/estoque/CriaItem" element={<CriaItem />} />
       </Routes>
     </Router>
   );

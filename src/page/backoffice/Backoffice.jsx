@@ -69,7 +69,7 @@ function Backoffice() {
             {location.pathname !== '/backoffice/Stock' && (
               <button
                 id="btn-estoque"
-                onClick={() => navigateTo('/Backoffice/Stock')}
+                onClick={() => navigateTo('/Backoffice/estoque/Stock')}
               >
                 <FaBox /> Estoque
               </button>

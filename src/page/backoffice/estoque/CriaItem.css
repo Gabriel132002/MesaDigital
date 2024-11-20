@@ -1,0 +1,100 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins:300,500,400,600");
+
+* {
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body,
+#root {
+  font-family: 'Poppins', sans-serif;
+  height: 100%;
+  background-color: #f1f1f1; /* Fundo mais próximo do mostrado no print */
+}
+
+.app-container {
+  padding: 20px;
+  background-color: #e6e6e6;
+  border-radius: 8px;
+  min-height: 100vh; /* Ajuste para ocupar a altura total da tela */
+}
+
+#side-button-container {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+
+#side-button {
+  background-color: transparent;
+  border: none;
+}
+
+#header-grid {
+  display: grid;
+  justify-self: center;
+  padding: 10px;
+  position: relative;
+  max-width: fit-content;
+}
+
+.inventory-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+  width: 50%;
+  justify-self: center;
+}
+
+.inventory-form select,
+.inventory-form input,
+.inventory-form textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+.observation-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.register-button {
+  background-color: #e65100;
+  color: white;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;    
+}
+
+.register-button:hover {
+  background-color: #d84329;
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+  .inventory-form {
+    padding: 5px;
+    width: 93%;
+  }
+  .register-button {
+    box-sizing: border-box;
+    width: 100%;
+  }
+  #label-observacao {
+    max-width: fit-content;
+    width: 60%;
+  }
+}
