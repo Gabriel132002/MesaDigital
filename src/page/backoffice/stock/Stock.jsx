@@ -97,7 +97,7 @@ function Stock() {
             onChange={(e) => setNovoEstoque(e.target.value)}
             className="new-stock-input"
           />
-          <button className="register-button" onClick={criarEstoque}>
+          <button style={{width: '100%'}} className="register-button" onClick={criarEstoque}>
             Criar Estoque
           </button>
         </div>

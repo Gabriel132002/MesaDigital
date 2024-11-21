@@ -88,7 +88,7 @@ function Home() {
                       <p>{prato.descricao}</p>
                       <span>{prato.valor.toLocaleString("pt-BR", { style: "currency", currency: "BRL" })}</span>
                     </div>
-                    <button className="add-image-btn">FAZER PEDIDO</button>
+                    <button className="add-image-btn">📷</button>
                   </div>
                 ))}
               </div>
