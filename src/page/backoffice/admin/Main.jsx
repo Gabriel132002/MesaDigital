@@ -40,7 +40,7 @@ function Main() {
   };
 
   return (
-    <div className="full-screen">
+    <div id="admin-bg">
       <div>
         <div className="top">
           <img src={Logo} alt="Logo principal" id="main-logo" />

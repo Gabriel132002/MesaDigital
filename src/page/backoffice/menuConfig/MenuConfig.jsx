@@ -21,7 +21,9 @@ function MenuConfig() {
     // Função para buscar categorias
     const fetchCategories = async () => {
       try {
-        const response = await fetch('http://localhost:8080/cardapio/categoria/get-all');
+        const response = await fetch(
+          'http://localhost:8080/cardapio/categoria/get-all'
+        );
         const data = await response.json();
         setCategories(data.filter((cat) => cat.tipo === 'COMIDA')); // Filtra apenas categorias do tipo COMIDA
       } catch (error) {
@@ -32,7 +34,9 @@ function MenuConfig() {
     // Função para buscar estoques
     const fetchStocks = async () => {
       try {
-        const response = await fetch('http://localhost:8080/mesa/estoque/get-all');
+        const response = await fetch(
+          'http://localhost:8080/mesa/estoque/get-all'
+        );
         const data = await response.json();
         setStocks(data);
       } catch (error) {
@@ -60,16 +64,21 @@ function MenuConfig() {
     }
 
     try {
-      const response = await fetch('http://localhost:8080/cardapio/categoria/create', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...newCategory, tipo: 'COMIDA' }),
-      });
+      const response = await fetch(
+        'http://localhost:8080/cardapio/categoria/create',
+        {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ ...newCategory, tipo: 'COMIDA' }),
+        }
+      );
 
       if (response.ok) {
         alert('Categoria criada com sucesso!');
         setNewCategory({ nome: '', descricao: '' });
-        const updatedCategories = await fetch('http://localhost:8080/cardapio/categoria/get-all');
+        const updatedCategories = await fetch(
+          'http://localhost:8080/cardapio/categoria/get-all'
+        );
         const data = await updatedCategories.json();
         setCategories(data.filter((cat) => cat.tipo === 'COMIDA'));
       } else {
@@ -82,26 +91,37 @@ function MenuConfig() {
 
   // Função para criar um produto
   const handleCreateProduct = async () => {
-    const { categoriaId, estoqueId, nome, descricao, quantidade, valor } = newProduct;
+    const { categoriaId, estoqueId, nome, descricao, quantidade, valor } =
+      newProduct;
 
-    if (!categoriaId || !estoqueId || !nome || !descricao || !quantidade || !valor) {
+    if (
+      !categoriaId ||
+      !estoqueId ||
+      !nome ||
+      !descricao ||
+      !quantidade ||
+      !valor
+    ) {
       alert('Preencha todos os campos para criar um produto.');
       return;
     }
 
     try {
-      const response = await fetch('http://localhost:8080/cardapio/produto/create', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          categoriaId: parseInt(categoriaId, 10),
-          estoqueId: parseInt(estoqueId, 10),
-          nome,
-          descricao,
-          quantidade: parseInt(quantidade, 10),
-          valor: parseFloat(valor),
-        }),
-      });
+      const response = await fetch(
+        'http://localhost:8080/cardapio/produto/create',
+        {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            categoriaId: parseInt(categoriaId, 10),
+            estoqueId: parseInt(estoqueId, 10),
+            nome,
+            descricao,
+            quantidade: parseInt(quantidade, 10),
+            valor: parseFloat(valor),
+          }),
+        }
+      );
 
       if (response.ok) {
         alert('Produto criado com sucesso!');
@@ -147,29 +167,39 @@ function MenuConfig() {
         </div>
 
         {/* Formulário para adicionar uma nova categoria */}
-        <div>
+        <div className='input-class'>
           <h2>Adicionar Nova Categoria</h2>
           <input
+            className="input-class"
             type="text"
             placeholder="Nome"
             value={newCategory.nome}
-            onChange={(e) => setNewCategory({ ...newCategory, nome: e.target.value })}
+            onChange={(e) =>
+              setNewCategory({ ...newCategory, nome: e.target.value })
+            }
           />
           <input
+            className="input-class"
             type="text"
             placeholder="Descrição"
             value={newCategory.descricao}
-            onChange={(e) => setNewCategory({ ...newCategory, descricao: e.target.value })}
+            onChange={(e) =>
+              setNewCategory({ ...newCategory, descricao: e.target.value })
+            }
           />
-          <button onClick={handleAddCategory}>Adicionar Categoria</button>
+          <button onClick={handleAddCategory} style={{ marginTop: '2px' }}>
+            Adicionar Categoria
+          </button>
         </div>
 
         {/* Formulário para criar um novo produto */}
-        <div>
+        <div className='input-class'>
           <h2>Criar Produto</h2>
           <select
             value={newProduct.categoriaId}
-            onChange={(e) => setNewProduct({ ...newProduct, categoriaId: e.target.value })}
+            onChange={(e) =>
+              setNewProduct({ ...newProduct, categoriaId: e.target.value })
+            }
           >
             <option value="" disabled>
               Selecionar Categoria
@@ -183,7 +213,9 @@ function MenuConfig() {
 
           <select
             value={newProduct.estoqueId}
-            onChange={(e) => setNewProduct({ ...newProduct, estoqueId: e.target.value })}
+            onChange={(e) =>
+              setNewProduct({ ...newProduct, estoqueId: e.target.value })
+            }
           >
             <option value="" disabled>
               Selecionar Estoque
@@ -196,30 +228,44 @@ function MenuConfig() {
           </select>
 
           <input
+            className="input-class"
             type="text"
             placeholder="Nome do Produto"
             value={newProduct.nome}
-            onChange={(e) => setNewProduct({ ...newProduct, nome: e.target.value })}
+            onChange={(e) =>
+              setNewProduct({ ...newProduct, nome: e.target.value })
+            }
           />
           <input
+            className="input-class"
             type="text"
             placeholder="Descrição"
             value={newProduct.descricao}
-            onChange={(e) => setNewProduct({ ...newProduct, descricao: e.target.value })}
+            onChange={(e) =>
+              setNewProduct({ ...newProduct, descricao: e.target.value })
+            }
           />
           <input
+            className="input-class"
             type="number"
             placeholder="Quantidade"
             value={newProduct.quantidade}
-            onChange={(e) => setNewProduct({ ...newProduct, quantidade: e.target.value })}
+            onChange={(e) =>
+              setNewProduct({ ...newProduct, quantidade: e.target.value })
+            }
           />
           <input
+            className="input-class"
             type="number"
             placeholder="Valor (R$)"
             value={newProduct.valor}
-            onChange={(e) => setNewProduct({ ...newProduct, valor: e.target.value })}
+            onChange={(e) =>
+              setNewProduct({ ...newProduct, valor: e.target.value })
+            }
           />
-          <button onClick={handleCreateProduct}>Criar Produto</button>
+          <button onClick={handleCreateProduct} style={{ marginTop: '2px' }}>
+            Criar Produto
+          </button>
         </div>
       </div>
     </div>

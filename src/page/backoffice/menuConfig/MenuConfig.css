@@ -47,18 +47,10 @@
   gap: 10px;
 }
 
-#input-container {
+.input-class {
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  width: 100%;
-}
-
-#input-container input,
-#input-container select {
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  gap: 0.8vh;
 }
 
 #info-container {

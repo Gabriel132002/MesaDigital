@@ -1,4 +1,4 @@
-﻿import React, { useState } from 'react';
+﻿import { useState } from 'react';
 import { FaBars } from 'react-icons/fa'; // Certifique-se de que 'react-icons' está instalado
 import SideBar from '../../SideBar';
 import './CriaItem.css'; // Importando o CSS atualizado

@@ -1,13 +1,3 @@
-body,
-html {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  font-family: Arial, sans-serif;
-}
-
 #title-container {
   margin-top: 50px;
 }
@@ -18,7 +8,8 @@ html {
   background-color: transparent;
 }
 
-#container {
+#container-backoffice {
+  height: 10hv;
   display: flex;
   align-items: center;
   justify-content: center;

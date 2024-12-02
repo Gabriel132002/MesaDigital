@@ -4,14 +4,13 @@ import Logo from '../../assets/images/logo.jpg';
 import SideBar from '../SideBar';
 import { FaUserShield, FaBox, FaBars, FaDollarSign } from 'react-icons/fa';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
 // import useFetchData from '../../../service/Connection';
 
 function Backoffice() {
   // const { data, error, loading } = useFetchData(
   //   //colocar a url endpoint do backoffice aqui
   // );
-  const { t } = useTranslation();
+  
   const [isSideBarOpen, setIsSideBarOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
@@ -31,7 +30,7 @@ function Backoffice() {
 
   return (
     <div>
-      <div id="container">
+      <div id="container-backoffice">
         <div id="side-button-container">
           <button id="side-button" onClick={toggleSideBar}>
             <FaBars size={30} />
@@ -51,7 +50,7 @@ function Backoffice() {
                 id="btn-cardapio"
                 onClick={() => navigateTo('/Backoffice/Menu')}
               >
-                <FaBars /> {t("Cardápio")}
+                <FaBars /> Cardápio
               </button>
             )}
           </div>
