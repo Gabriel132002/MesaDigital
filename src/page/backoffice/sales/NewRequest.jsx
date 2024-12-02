@@ -1,14 +1,14 @@
 ﻿import React, { useState, useEffect } from 'react';
 import './NewRequest.css';
+import { useParams } from 'react-router-dom';
 
 function NewRequest() {
+  const { orderId } = useParams();
   const [categorias, setCategorias] = useState([]);
   const [produtos, setProdutos] = useState([]);
   const [selectedCategoria, setSelectedCategoria] = useState('');
   const [selectedProduto, setSelectedProduto] = useState('');
-  const [quantidade, setQuantidade] = useState(1);
-  const [numMesa, setNumMesa] = useState('');
-  const [observacao, setObservacao] = useState('');
+  const [quantidade, setQuantidade] = useState(1);const [observacao, setObservacao] = useState('');
   const [pedidoProdutos, setPedidoProdutos] = useState([]); // Produtos selecionados
   const [isLoading, setIsLoading] = useState(true);
 
@@ -30,7 +30,6 @@ function NewRequest() {
     fetchCategoriasEProdutos();
   }, []);
 
-  // Adicionar produto à lista de pedido
   const handleAdicionarProduto = () => {
     const produtoSelecionado = produtos.find((produto) => produto.id === Number(selectedProduto));
     if (produtoSelecionado) {
@@ -46,14 +45,12 @@ function NewRequest() {
     }
   };
 
-  // Enviar o novo pedido para o backend
   const handleSubmit = async (event) => {
     event.preventDefault();
 
     const pedidoData = {
       categoriaId: selectedCategoria,
-      comandaId: 1, // Número da comanda fixo, você pode adaptar conforme necessário
-      numMesa: Number(numMesa),
+      comandaId: orderId,
       observacao,
       produtos: pedidoProdutos,
     };
@@ -67,15 +64,14 @@ function NewRequest() {
 
       if (response.ok) {
         alert('Pedido lançado com sucesso!');
-        // Limpar o formulário após o envio
-        setNumMesa('');
         setObservacao('');
         setPedidoProdutos([]);
       } else {
-        alert('Erro ao lançar pedido');
+        console.log(response);
+        alert('Erro ao lançar pedido' + response);
       }
     } catch (error) {
-      console.error('Erro ao enviar pedido:', error);
+      console.error('Erro ao enviar pedido:', error.message);
     }
   };
 
@@ -121,16 +117,6 @@ function NewRequest() {
             min="1"
             value={quantidade}
             onChange={(e) => setQuantidade(Number(e.target.value))}
-          />
-        </label>
-
-        <label>
-          Mesa:
-          <input
-            type="number"
-            min="1"
-            value={numMesa}
-            onChange={(e) => setNumMesa(e.target.value)}
           />
         </label>
 

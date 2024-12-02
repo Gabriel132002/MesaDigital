@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import SideBar from '../../SideBar';
-import { FaBars } from 'react-icons/fa'; // Certifique-se de que 'react-icons' está instalado
-import './Stock.css'; // CSS atualizado
+import { FaBars } from 'react-icons/fa';
+import './Stock.css';
 
 function Stock() {
   const [isSideBarOpen, setIsSideBarOpen] = useState(false);
   const [estoques, setEstoques] = useState([]);
   const [produtos, setProdutos] = useState([]);
+  const [ingredientes, setIngredientes] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [novoEstoque, setNovoEstoque] = useState("");
@@ -19,25 +20,28 @@ function Stock() {
     setIsSideBarOpen(false);
   };
 
-  // Fetch Estoques e Produtos
+  // Fetch Estoques, Produtos e Ingredientes
   useEffect(() => {
-    const fetchEstoquesEProdutos = async () => {
+    const fetchDados = async () => {
       try {
         setLoading(true);
-        const [estoquesResponse, produtosResponse] = await Promise.all([
+        const [estoquesResponse, produtosResponse, ingredientesResponse] = await Promise.all([
           fetch('http://localhost:8080/mesa/estoque/get-all'),
-          fetch('http://localhost:8080/mesa/produtos/get-all'),
+          fetch('http://localhost:8080/estoque/produto/get-all'),
+          fetch('http://localhost:8080/estoque/ingrediente/get-all'),
         ]);
 
-        if (!estoquesResponse.ok || !produtosResponse.ok) {
+        if (!estoquesResponse.ok || !produtosResponse.ok || !ingredientesResponse.ok) {
           throw new Error("Erro ao buscar dados");
         }
 
         const estoquesData = await estoquesResponse.json();
         const produtosData = await produtosResponse.json();
+        const ingredientesData = await ingredientesResponse.json();
 
         setEstoques(estoquesData);
         setProdutos(produtosData);
+        setIngredientes(ingredientesData);
       } catch (error) {
         setError(error.message);
       } finally {
@@ -45,7 +49,7 @@ function Stock() {
       }
     };
 
-    fetchEstoquesEProdutos();
+    fetchDados();
   }, []);
 
   // Criar Estoque
@@ -77,6 +81,10 @@ function Stock() {
   const produtosPorEstoque = (estoqueId) =>
     produtos.filter((produto) => produto.estoque?.id === estoqueId);
 
+  // Filtrar ingredientes por estoque
+  const ingredientesPorEstoque = (estoqueId) =>
+    ingredientes.filter((ingrediente) => ingrediente.estoque?.id === estoqueId);
+
   return (
     <div className="app-container">
       <div id="side-button-container">
@@ -101,6 +109,15 @@ function Stock() {
             Criar Estoque
           </button>
         </div>
+        <div className="redirect-button-container">
+          <button
+            style={{width: '100%', marginBottom: '10px'}}
+            className="register-button"
+            onClick={() => window.location.href = 'Gerenciamento'}
+          >
+            Gerenciar Estoque
+          </button>
+        </div>
         {loading ? (
           <p>Carregando...</p>
         ) : error ? (
@@ -110,16 +127,29 @@ function Stock() {
             {estoques.map((estoque) => (
               <section key={estoque.id} className="section">
                 <h2>{estoque.nome}</h2>
+                <h3>Produtos:</h3>
                 {produtosPorEstoque(estoque.id).length > 0 ? (
                   produtosPorEstoque(estoque.id).map((produto) => (
                     <div key={produto.id} className="item">
-                      <p>{produto.nome}</p>
+                      <p>Nome: {produto.nome}</p>
                       <p>Qtd.: {produto.quantidade}</p>
                       <p>Categoria: {produto.categoria.descricao}</p>
                     </div>
                   ))
                 ) : (
                   <p>Sem produtos neste estoque.</p>
+                )}
+                <h3>Ingredientes:</h3>
+                {ingredientesPorEstoque(estoque.id).length > 0 ? (
+                  ingredientesPorEstoque(estoque.id).map((ingrediente) => (
+                    <div key={ingrediente.id} className="item">
+                      <p>Nome: {ingrediente.nome}</p>
+                      <p>Qtd.: {ingrediente.quantidade}</p>
+                      <p>Unidade: {ingrediente.unidade}</p>
+                    </div>
+                  ))
+                ) : (
+                  <p>Sem ingredientes neste estoque.</p>
                 )}
               </section>
             ))}

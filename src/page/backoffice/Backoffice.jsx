@@ -51,7 +51,7 @@ function Backoffice() {
                 id="btn-cardapio"
                 onClick={() => navigateTo('/Backoffice/Menu')}
               >
-                <FaBars /> {t("Cardápio")}
+                <FaBars /> {t("Produtos")}
               </button>
             )}
           </div>
