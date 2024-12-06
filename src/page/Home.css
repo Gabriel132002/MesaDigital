@@ -8,6 +8,7 @@
 
 /* TopNavBar com estilo de carrossel horizontal */
 .top-navbar {
+    height: 95px;
     display: flex;
     overflow-x: auto; /* Ativa o scroll horizontal */
     white-space: nowrap; /* Mantém os itens em linha única */
@@ -18,10 +19,17 @@
     width: -webkit-fill-available; /* Preenche o espaço disponível */
     width: fill-available;
 }
+img {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+    width: 150px;
+}
 
 /* Estilização do scrollbar para o TopNavBar */
 .top-navbar::-webkit-scrollbar {
     display: none; /* Esconde o scrollbar para estilo mais limpo */
+    color: #333333;
 }
 
 /* Botões do TopNavBar */

@@ -1,19 +1,69 @@
-﻿import React, { useState } from 'react';
-import './NewOrder.css'; // Importa o CSS específico para o componente
+﻿import React, { useState, useEffect } from 'react';
+import './NewOrder.css';
 
 function NewOrder() {
   const [orderDetails, setOrderDetails] = useState({
-    number: '', // Número da comanda
-    employee: '', // Funcionário responsável
-    table: '', // Número da mesa
-    observation: '', // Observação
+    number: '',
+    employee: '',
+    table: '',
+    observation: '',
   });
 
-  // Simulando funcionários cadastrados (substitua por dados reais, se necessário)
-  const employees = []; // Deixe vazio para testar a mensagem "Nenhum funcionário cadastrado"
+  const [employees, setEmployees] = useState([]);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  useEffect(() => {
+    const fetchEmployees = async () => {
+      try {
+        const response = await fetch('http://localhost:8080/auth/list/users');
+        const data = await response.json();
+        setEmployees(data);
+      } catch (error) {
+        console.error('Erro ao buscar funcionários:', error);
+      }
+    };
+
+    fetchEmployees();
+  }, []);
 
   const handleInputChange = (field, value) => {
     setOrderDetails({ ...orderDetails, [field]: value });
+  };
+
+  const handleCreateOrder = async () => {
+    setIsSubmitting(true);
+    const { number, employee, table, observation } = orderDetails;
+
+    if (!number || !employee || !table) {
+      alert('Preencha todos os campos obrigatórios.');
+      setIsSubmitting(false);
+      return;
+    }
+
+    try {
+      const response = await fetch('http://localhost:8080/mesa/comanda/create', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          numComanda: parseInt(number, 10),
+          funcionarioId: parseInt(employee, 10),
+          numMesa: parseInt(table, 10),
+          observacao: observation,
+        }),
+      });
+
+      if (response.ok) {
+        alert('Comanda criada com sucesso!');
+        setOrderDetails({ number: '', employee: '', table: '', observation: '' });
+      } else {
+        alert('Erro ao criar comanda.');
+      }
+    } catch (error) {
+      console.error('Erro ao criar comanda:', error);
+      alert('Erro ao criar comanda.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -23,7 +73,7 @@ function NewOrder() {
         <div className="new-order-form">
           {/* Número da Comanda */}
           <input
-            type="text"
+            type="number"
             placeholder="Número da Comanda"
             value={orderDetails.number}
             onChange={(e) => handleInputChange('number', e.target.value)}
@@ -38,9 +88,9 @@ function NewOrder() {
               Selecionar Funcionário
             </option>
             {employees.length > 0 ? (
-              employees.map((employee, index) => (
-                <option key={index} value={employee}>
-                  {employee}
+              employees.map((employee) => (
+                <option key={employee.id} value={employee.id}>
+                  {employee.nome}
                 </option>
               ))
             ) : (
@@ -50,7 +100,7 @@ function NewOrder() {
 
           {/* Número da Mesa */}
           <input
-            type="text"
+            type="number"
             placeholder="Número da Mesa"
             value={orderDetails.table}
             onChange={(e) => handleInputChange('table', e.target.value)}
@@ -64,7 +114,13 @@ function NewOrder() {
           />
 
           {/* Botão Criar Comanda */}
-          <button className="new-order-button">Criar Comanda</button>
+          <button
+            className="new-order-button"
+            onClick={handleCreateOrder}
+            disabled={isSubmitting}
+          >
+            {isSubmitting ? 'Criando...' : 'Criar Comanda'}
+          </button>
         </div>
       </div>
     </div>

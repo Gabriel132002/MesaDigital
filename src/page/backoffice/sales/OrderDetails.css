@@ -1,4 +1,11 @@
-﻿/* Estilo geral */
+﻿#container {
+  height: 100vh; /* Altura total da viewport */
+  overflow-y: auto; /* Ativa o scroll vertical */
+  display: flex;
+  flex-direction: column;
+}
+
+/* Estilo geral */
 body {
     margin: 0;
     padding: 0;
@@ -8,6 +15,10 @@ body {
 
   /* Contêiner principal */
   .order-details {
+    height: 100%; /* Altura total da viewport */
+    overflow-y: auto; /* Ativa o scroll vertical */
+    display: flex;
+    flex-direction: column;
     padding: 40px;
     text-align: center;
     max-width: 1200px;

@@ -3,13 +3,21 @@ import SideBar from './SideBar';
 import { FaBars } from 'react-icons/fa';
 import './Home.css';
 import useConnection from '../service/Connection';
+import PratoPrincipal from '../assets/images/prato_principal.jpg'
+import Prato1 from '../assets/images/prato2.avif'
+import Prato2 from '../assets/images/prato3.jpeg'
+import Prato3 from '../assets/images/prato4.jpg'
+import Prato4 from '../assets/images/prato5.png'
 
 function Home() {
   const { data: dados, error, loading } = useConnection("http://localhost:8080/cardapio/get");
   const [isSideBarOpen, setIsSideBarOpen] = useState(false);
   const [categorias, setCategorias] = useState([]);
+  const [listImages, setListImages] = useState([]);
 
   useEffect(() => {
+    let images = [PratoPrincipal, Prato1, Prato2, Prato3, Prato4];
+    setListImages(images);
     if (dados && dados.produtoList) {
       const categoriasMap = {};
       dados.produtoList.forEach((produto) => {
@@ -43,6 +51,10 @@ function Home() {
     }
   };
 
+  const generatorRandomImage = () => {
+    return listImages[Math.floor(Math.random() * listImages.length)];
+  }
+
   return (
     <div>
       {isSideBarOpen && <SideBar onClose={handleClose} />}
@@ -53,7 +65,6 @@ function Home() {
           </button>
         </div>
 
-        {/* TopNavBar dinâmica */}
         <nav className="top-navbar">
           {categorias.map((categoria) => (
             <button
@@ -82,13 +93,15 @@ function Home() {
               <h2>{categoria.descricao}</h2>
               <div className="menu-items">
                 {categoria.produtos.map((prato) => (
-                  <div key={prato.id} className="menu-item">
+                  <div key={prato.id} className="menu-item" style={{display: 'flex', alignItems: 'center', justifyContent: 'space-between'}}>
                     <div className="item-details">
                       <h3>{prato.nome}</h3>
-                      <p>{prato.descricao}</p>
-                      <span>{prato.valor.toLocaleString("pt-BR", { style: "currency", currency: "BRL" })}</span>
+                      <p style={{color: 'orange', font: 'menu'}}>{prato.descricao}</p>
+                      <span style={{color: 'green'}}>{prato.valor.toLocaleString("pt-BR", { style: "currency", currency: "BRL" })}</span>
                     </div>
-                    <button className="add-image-btn">FAZER PEDIDO</button>
+                    <div>
+                      <img className="img" src={generatorRandomImage()} alt={'Prato Principal'} />
+                  </div>
                   </div>
                 ))}
               </div>

@@ -8,6 +8,10 @@ body {
 
   /* Contêiner principal */
   .close-order {
+    height: 100%; /* Altura total da viewport */
+    overflow-y: auto; /* Ativa o scroll vertical */
+    display: flex;
+    flex-direction: column;
     padding: 40px;
     text-align: center;
     max-width: 1200px;
@@ -74,6 +78,7 @@ body {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    width: inherit;
     transition: background-color 0.3s ease;
   }
 

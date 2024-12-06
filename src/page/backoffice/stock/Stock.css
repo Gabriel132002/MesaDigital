@@ -15,6 +15,10 @@ body,
 }
 
 .app-container {
+  height: 100%; /* Altura total da viewport */
+  overflow-y: auto; /* Ativa o scroll vertical */
+  display: flex;
+  flex-direction: column;
   padding: 20px;
   background-color: #e6e6e6;
   border-radius: 8px;

@@ -51,7 +51,7 @@ function Backoffice() {
                 id="btn-cardapio"
                 onClick={() => navigateTo('/Backoffice/Menu')}
               >
-                <FaBars /> {t("Cardápio")}
+                <FaBars /> {t("Produtos")}
               </button>
             )}
           </div>
@@ -72,16 +72,6 @@ function Backoffice() {
                 onClick={() => navigateTo('/Backoffice/Stock')}
               >
                 <FaBox /> Estoque
-              </button>
-            )}
-          </div>
-          <div id="btn-admin-container">
-            {location.pathname !== '/backoffice/admin/Main' && (
-              <button
-                id="btn-admin"
-                onClick={() => navigateTo('/Backoffice/Admin/main')}
-              >
-                <FaUserShield /> Administração
               </button>
             )}
           </div>
