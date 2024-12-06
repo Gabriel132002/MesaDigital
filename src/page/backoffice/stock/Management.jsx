@@ -47,7 +47,7 @@ function Management() {
       const [categoriasRes, ingredientesRes, produtosRes, estoquesRes] = await Promise.all([
         fetch('http://localhost:8080/cardapio/categoria/get-all'),
         fetch('http://localhost:8080/estoque/ingrediente/get-all'),
-        fetch('http://localhost:8080/cardapio/produto/todos'),
+        fetch('http://localhost:8080/estoque/produto/get-all'),
         fetch("http://localhost:8080/mesa/estoque/get-all"),
       ]);
 
@@ -87,6 +87,7 @@ function Management() {
         valor: '',
         categoriaId: '',
         estoqueId: '',
+        quantidade: '',
         ingredientes: []});
     } catch (error) {
       alert(error.message);
@@ -95,8 +96,9 @@ function Management() {
 
   const handleDelete = async (entity, id, endpoint) => {
     try {
-      const response = await fetch(`${endpoint}/${id}`, {
+      const response = await fetch(`${endpoint}?produtoId=${id}`, {
         method: 'DELETE',
+        param: {produtoId: id}
       });
 
       if (!response.ok) throw new Error(`Erro ao excluir ${entity}`);
@@ -153,6 +155,12 @@ function Management() {
                   value={novoProduto.valor}
                   onChange={(e) => setNovoProduto({ ...novoProduto, valor: e.target.value })}
                 />
+                <input
+                  type="number"
+                  placeholder="Quantidade"
+                  value={novoProduto.quantidade}
+                  onChange={(e) => setNovoProduto({ ...novoProduto, quantidade: e.target.value })}
+                />
                 <select
                   value={novoProduto.categoriaId}
                   onChange={(e) => setNovoProduto({ ...novoProduto, categoriaId: e.target.value })}
@@ -196,7 +204,7 @@ function Management() {
                     <button onClick={() => setNovoProduto(prod)}>Alterar</button>
                     <button
                       onClick={() =>
-                        handleDelete('Produto', prod.id, 'http://localhost:8080/cardapio/produto/delete')
+                        handleDelete('Produto', prod.id, 'http://localhost:8080/estoque/produto/delete')
                       }
                     >
                     Excluir

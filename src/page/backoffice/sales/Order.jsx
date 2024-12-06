@@ -54,7 +54,7 @@ function Order() {
               <ul>
                 {comandasAbertas.map((comanda) => (
                   <li key={comanda.id} onClick={() => handleOrderDetails(comanda.id)}>
-                    Comanda #{String(comanda.id)} - Mesa {comanda.numeroMesa} - R$ {comanda.valor}
+                    Comanda #{String(comanda.id)} - Mesa {comanda.numeroMesa}
                   </li>
                 ))}
               </ul>
@@ -68,7 +68,7 @@ function Order() {
               <ul>
                 {comandasFechadas.map((comanda) => (
                   <li key={comanda.id} onClick={() => handleOrderDetails(comanda.id)}>
-                    Comanda #{String(comanda.id)} - Mesa {comanda.numeroMesa} - R$ {comanda.valor}
+                    Comanda #{String(comanda.id)} - Mesa {comanda.numeroMesa}
                   </li>
                 ))}
               </ul>

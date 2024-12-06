@@ -75,16 +75,6 @@ function Backoffice() {
               </button>
             )}
           </div>
-          <div id="btn-admin-container">
-            {location.pathname !== '/backoffice/admin/Main' && (
-              <button
-                id="btn-admin"
-                onClick={() => navigateTo('/Backoffice/Admin/main')}
-              >
-                <FaUserShield /> Administração
-              </button>
-            )}
-          </div>
         </div>
       </div>
     </div>
