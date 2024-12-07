@@ -6,10 +6,14 @@
   width: 222px;
   height: 166px;
   background-color: transparent;
+  margin-top: 20vh;
 }
 
 #container-backoffice {
-  height: 10hv;
+  position: absolute;
+  top: 2vh;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
   align-items: center;
   justify-content: center;

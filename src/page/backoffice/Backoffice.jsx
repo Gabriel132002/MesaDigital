@@ -2,15 +2,16 @@ import { useState } from 'react';
 import './Backoffice.css';
 import Logo from '../../assets/images/logo.jpg';
 import SideBar from '../SideBar';
-import { FaUserShield, FaBox, FaBars, FaDollarSign } from 'react-icons/fa';
+import { FaBox, FaBars, FaDollarSign } from 'react-icons/fa';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 // import useFetchData from '../../../service/Connection';
 
 function Backoffice() {
   // const { data, error, loading } = useFetchData(
   //   //colocar a url endpoint do backoffice aqui
   // );
-  
+  const { t } = useTranslation();
   const [isSideBarOpen, setIsSideBarOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
@@ -20,9 +21,9 @@ function Backoffice() {
     onclose();
   };
 
-  const toggleSideBar = () => {
-    setIsSideBarOpen(!isSideBarOpen);
-  };
+  // const toggleSideBar = () => {
+  //   setIsSideBarOpen(!isSideBarOpen);
+  // };
 
   const handleClose = () => {
     setIsSideBarOpen(false);
@@ -32,9 +33,9 @@ function Backoffice() {
     <div>
       <div id="container-backoffice">
         <div id="side-button-container">
-          <button id="side-button" onClick={toggleSideBar}>
+          {/* <button id="side-button" onClick={toggleSideBar}>
             <FaBars size={30} />
-          </button>
+          </button> */}
         </div>
         {isSideBarOpen && <SideBar onClose={handleClose} />}
         <div id="title-container">
@@ -50,7 +51,7 @@ function Backoffice() {
                 id="btn-cardapio"
                 onClick={() => navigateTo('/Backoffice/Menu')}
               >
-                <FaBars /> Cardápio
+                <FaBars /> {t('Produtos')}
               </button>
             )}
           </div>
@@ -71,16 +72,6 @@ function Backoffice() {
                 onClick={() => navigateTo('/Backoffice/Stock')}
               >
                 <FaBox /> Estoque
-              </button>
-            )}
-          </div>
-          <div id="btn-admin-container">
-            {location.pathname !== '/backoffice/admin/Main' && (
-              <button
-                id="btn-admin"
-                onClick={() => navigateTo('/Backoffice/Admin/main')}
-              >
-                <FaUserShield /> Administração
               </button>
             )}
           </div>

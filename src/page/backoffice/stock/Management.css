@@ -1,0 +1,206 @@
+/* Geral */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #333;
+  overflow-y: scroll;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: white;
+}
+
+#side-button-container {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 1000;
+}
+
+#side-button {
+  background-color: #ff6200;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+#side-button:hover {
+  background-color: #ff6200;
+}
+
+#management-content-card {
+  width: 80vh;
+  margin: 20px;
+  padding: 5px;
+  background: #e5e5e5;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  align-self: center;
+}
+
+.management-create-button {
+  background-color: #ff6200;
+}
+
+header#header-grid {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+header#header-grid h1 {
+  font-size: 24px;
+  margin: 0;
+}
+
+.management-container {
+  display: grid;
+  gap: 20px;
+}
+
+.management-container section {
+  background: #fefefe;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 70vh;
+}
+
+.management-container h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: #007bff;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+form input,
+form select {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+form input:focus,
+form select:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+form button {
+  padding: 10px;
+  font-size: 16px;
+  color: white;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Lista de itens */
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+ul li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  background-color: #f9f9f9;
+}
+
+ul li:last-child {
+  margin-bottom: 0;
+}
+
+ul li button {
+  margin-left: 10px;
+  padding: 5px 10px;
+  font-size: 14px;
+  color: white;
+  background-color: #dc3545;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+ul li button:hover {
+  background-color: #b02a37;
+}
+
+ul li button:first-child {
+  background-color: #28a745;
+}
+
+ul li button:first-child:hover {
+  background-color: #218838;
+}
+
+/* Erro e carregamento */
+.error-message {
+  color: #dc3545;
+  font-weight: bold;
+}
+
+p {
+  font-size: 16px;
+  text-align: center;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .content {
+    margin: 10px;
+    padding: 10px;
+  }
+
+  form {
+    gap: 5px;
+  }
+
+  form button {
+    font-size: 14px;
+  }
+
+  ul li {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  ul li button {
+    margin: 0;
+  }
+
+  .management-container section {
+    background: #fefefe;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 100%;
+  }
+
+  #management-content-card{
+    width: 100%;
+  }
+}

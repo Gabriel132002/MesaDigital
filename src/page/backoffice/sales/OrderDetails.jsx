@@ -3,13 +3,12 @@ import { useParams, useNavigate } from 'react-router-dom';
 import './OrderDetails.css';
 
 function OrderDetails() {
-  const { orderId } = useParams(); // Captura o ID da comanda
+  const { orderId } = useParams();
   const navigate = useNavigate();
   const [orderDetails, setOrderDetails] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [isFechada, setFechada] = useState(false);
 
-  // Função para buscar detalhes da comanda
   useEffect(() => {
     const fetchComanda= async () => {
       try {
@@ -51,7 +50,7 @@ function OrderDetails() {
 
   // Botão de novo pedido
   const handleNewRequest = () => {
-    navigate('/backoffice/sales/newrequest');
+    navigate(`/backoffice/sales/newrequest/${orderId}`);
   };
 
   // Botão de fechar comanda

@@ -1,17 +1,9 @@
-@import url("https://fonts.googleapis.com/css?family=Poppins:300,500,400,600");
+/* @import url("https://fonts.googleapis.com/css?family=Poppins:300,500,400,600"); */
 * {
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-}
-
-html,
-body,
-#root {
-  font-family: 'Poppins', sans-serif;
-  height: 100%;
-  background-color: #f1f1f1; /* Fundo mais próximo do mostrado no print */
 }
 
 .app-container {
@@ -52,6 +44,34 @@ body,
   justify-content: center;
   gap: 20px; /* Espaçamento entre os botões */
   margin: 20px auto; /* Centraliza o contêiner dos botões */
+}
+
+#stock-manage-button{
+  width: 40vh;
+}
+
+#stock-manage-button-container{
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+#stock-button-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2vh;
+  width: 100%;
+}
+
+#stock-create-button{
+  width: 40vh;
+}
+
+#stock-setName-input{
+  border: 2px solid #ff6200;
+  width: 70vh;
 }
 
 .report-button,
@@ -122,5 +142,13 @@ select {
   .button-container {
     flex-direction: column;
     margin: 20px 0; /* Ajuste para centralizar os botões na responsividade */
+    }
+
+    #stock-setName-input{
+      width: 100%;
+    }
+
+    #stock-create-button{
+      width: 100%;
     }
 }

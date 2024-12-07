@@ -1,18 +1,17 @@
 ﻿import React, { useState, useEffect } from 'react';
-import './NewOrder.css'; // Importa o CSS específico para o componente
+import './NewOrder.css';
 
 function NewOrder() {
   const [orderDetails, setOrderDetails] = useState({
-    number: '', // Número da comanda
-    employee: '', // ID do funcionário responsável
-    table: '', // Número da mesa
-    observation: '', // Observação
+    number: '',
+    employee: '',
+    table: '',
+    observation: '',
   });
 
   const [employees, setEmployees] = useState([]);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  // Função para buscar os funcionários do backend
   useEffect(() => {
     const fetchEmployees = async () => {
       try {
@@ -31,12 +30,10 @@ function NewOrder() {
     setOrderDetails({ ...orderDetails, [field]: value });
   };
 
-  // Função para criar uma nova comanda
   const handleCreateOrder = async () => {
     setIsSubmitting(true);
     const { number, employee, table, observation } = orderDetails;
 
-    // Validação básica
     if (!number || !employee || !table) {
       alert('Preencha todos os campos obrigatórios.');
       setIsSubmitting(false);

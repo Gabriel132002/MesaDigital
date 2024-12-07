@@ -3,7 +3,7 @@ import Help from './page/Help';
 import Settings from './page/Settings';
 import Home from './page/Home';
 import MenuConfig from './page/backoffice/menuConfig/MenuConfig';
-import Order from './page/backoffice/sales/Order';
+import Order from './page/backoffice/Sales/Order.jsx';
 import NewOrder from './page/backoffice/sales/NewOrder';
 import OrderDetails from './page/backoffice/sales/OrderDetails';
 import NewRequest from './page/backoffice/sales/NewRequest';
@@ -22,12 +22,12 @@ import {
   Route,
   Navigate,
 } from 'react-router-dom';
+import Management from './page/backoffice/stock/Management.jsx';
 
 function repositories() {
   return (
     <Router>
       <Routes>
-        {/* Rotas principais */}
         <Route path="/" element={<Navigate to="/home" />} />
         <Route path="/home" element={<Home />} />
         <Route path="/backoffice" element={<Backoffice />} />
@@ -35,17 +35,15 @@ function repositories() {
         <Route path="/backoffice/settings" element={<Settings />} />
         <Route path="/backoffice/menu" element={<MenuConfig />} />
 
-        {/* Rotas de vendas */}
         <Route path="/backoffice/sales" element={<Order />} />
         <Route path="/backoffice/sales/neworder" element={<NewOrder />} />
         <Route path="/backoffice/sales/orderdetails/:orderId" element={<OrderDetails />} />
-        <Route path="/backoffice/sales/newrequest" element={<NewRequest />} />
+        <Route path="/backoffice/sales/newrequest/:orderId" element={<NewRequest />} />
         <Route path="/backoffice/sales/closeorder/:orderId" element={<CloseOrder />} />
 
-        {/* Rotas de estoque */}
         <Route path="/backoffice/stock" element={<Stock />} />
+        <Route path="/backoffice/gerenciamento" element={<Management />} />
 
-        {/* Rotas administrativas */}
         <Route path="/backoffice/admin/main" element={<Main />} />
         <Route path="/backoffice/admin/user" element={<User />} />
         <Route path="/backoffice/admin/activity" element={<Activity />} />
