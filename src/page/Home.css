@@ -18,6 +18,7 @@
     gap: 10px; /* Espaço entre os botões */
     width: -webkit-fill-available; /* Preenche o espaço disponível */
     width: fill-available;
+    justify-content: center;
 }
 img {
     border: 1px solid #ddd;
